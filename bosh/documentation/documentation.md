@@ -6,11 +6,21 @@ BOSH was originally developed in the context of the Cloud Foundry Application Pl
 
 ### [BOSH Components](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/bosh_components.md) ###
 
+This document describes the following components in details and the function they play. 
+*    Command Line Interface
+*    BOSH Director
+*    BOSH Agent
+*    BOSH CLI
+*    Stemcells
+*    Blobstore
+*    Health Monitor
+*    Message Bus
+
 ### [BOSH Terminology](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/bosh_terminology.md) ###
 
 ### [BOSH Installation](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/bosh_installation.md) ###
 
-### [Using BOSH](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/using_bosh.md) ###
+### [BOSH CLI](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/using_bosh.md) ###
 
 ### [BOSH Deployments](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/bosh_deployments.md) ###
 

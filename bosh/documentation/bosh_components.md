@@ -53,25 +53,6 @@ A Stemcell is a VM template with an embedded [BOSH Agent](#bosh-agent) The Stemc
 Stemcells are uploaded using the [BOSH CLI](#bosh-cli) and used by the [BOSH Director](#bosh-director) when creating VMs through the [Cloud Provider Interface] (#cloud-provider-interface).
 When the Director creates a VM through the CPI, it will pass along configurations for networking and storage, as well as the location and credentials for the [Message Bus](#message-bus) and the [Blobstore](#blobstore).
 
-## Releases ##
-
-A Release in BOSH is a packaged bundle of service descriptors known as Jobs. Jobs are collections of software bits and configurations.
-Any given Release contains all the static bits (source or binary) required to have BOSH manage an application or a distributed service.
-
-A Release is typically not restricted to any particular environment. As such, it can be re-used across clusters handling different stages in a service life cycle, such as Development, QA, Staging, or Production.
-The [BOSH CLI](#bosh-cli) manages both the creation of Releases and their deployments into specific environments.
-
-See the [Packages](#packages) section for a deeper look at both Releases and [Jobs](#jobs).
-
-## Deployments ##
-
-While BOSH [Stemcells](#stemcells) and [Packages](#packages) are static components, they are bound together into a Deployment by a [BOSH Deployment Manifest](#bosh-deployment-manifest).
-In the Deployment Manifest, you declare pools of VMs, which networks they live on, and which [Jobs](#jobs) (service components) from the Releases you want to activate.
-Job configurations specify life cycle parameters, the number of instances of a Job, and network and storage requirements.
-Furthermore, the Deployment Manifest allows you to specify properties used to parameterize configuration templates contained in the Release.
-
-Using the [BOSH CLI](#bosh-cli), you specify a Deployment Manifest and perform a Deploy operation (`bosh deploy`), which creates or updates resources on your cluster according to your specifications.
-Refer to the [Steps of a Deployment](#steps-of-a-deployment) for examples.
 
 ## Blobstore ##
 

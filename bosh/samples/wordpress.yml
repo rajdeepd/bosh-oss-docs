@@ -1,0 +1,126 @@
+---
+name: wordpress
+director_uuid: <YOUR_DIRECTOR_ID>
+
+release:
+  name: sample
+  version: 1
+
+compilation:
+  workers: 4
+  network: default
+  cloud_properties:
+    ram: 2048
+    disk: 8096
+    cpu: 2
+
+# this section describes how updates are handled
+update:
+  canaries: 1
+  canary_watch_time: 30000
+  update_watch_time: 30000
+  max_in_flight: 4
+  max_errors: 1
+
+networks:
+  - name: default
+    subnets:
+    - reserved:
+      - 192.0.2.2 - 192.0.2.10
+      - 192.0.2.200 - 192.0.2.254
+      static:
+      - 192.0.2.11 - 192.0.2.100
+      range: 192.0.2.0/24
+      gateway: 192.0.2.1
+      dns:
+      - 192.0.2.245
+      - 192.0.2.246
+      cloud_properties:
+        name: VLAN2220
+  - name: dmz
+    subnets:
+    - static:
+      - 192.168.0.1 - 192.168.0.2
+      range: 172.28.5.208/28
+      dns:
+      - 192.168.0.245
+      - 192.168.0.246
+      cloud_properties:
+        name: VLAN3093
+
+resource_pools:
+  - name: infrastructure
+    network: default
+    size: 6
+    stemcell:
+      name: bosh-stemcell
+      version: 0.4.6
+    cloud_properties:
+      cpu: 1
+      disk: 8192
+      ram: 4096
+
+jobs:
+  - name: mysql
+    template: mysql
+    instances: 1
+    resource_pool: infrastructure
+    persistent_disk: 16384
+    networks:
+    - name: default
+      static_ips:
+      - 192.0.2.20
+
+  - name: wordpress
+    template: wordpress
+    instances: 4
+    resource_pool: infrastructure
+    networks:
+    - name: default
+      static_ips:
+      - 192.0.2.30 - 192.0.2.33
+
+  - name: nginx
+    template: nginx
+    instances: 1
+    resource_pool: infrastructure
+    networks:
+    - name: default
+      default: [dns, gateway]
+      static_ips:
+        - 192.0.2.40
+    - name: dmz
+      static_ips:
+        - 192.168.0.1
+
+properties:
+
+  wordpress:
+    admin: foo@bar.com
+    port: 8008
+    servers:
+      - 192.0.2.30
+      - 192.0.2.31
+      - 192.0.2.32
+      - 192.0.2.33
+    servername: wp.appcloud14.dev.mozycloud.com
+    db:
+      name: wp
+      user: wordpress
+      pass: w0rdpr3ss
+    auth_key: random key
+    secure_auth_key: random key
+    logged_in_key: random key
+    nonce_key: random key
+    auth_salt: random key
+    secure_auth_salt: random key
+    logged_in_salt: random key
+    nonce_salt: random key
+
+  mysql:
+    address: 192.0.2.20
+    port: 3306
+    password: rootpass
+
+  nginx:
+    workers: 1

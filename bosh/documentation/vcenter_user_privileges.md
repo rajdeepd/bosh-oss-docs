@@ -1,4 +1,4 @@
-## Priveleges for a vCenter User ## 
+##Privileges for a vCenter User## 
 
 | Object 	| Permission 	|
 | -----------	| ------------------------------	|

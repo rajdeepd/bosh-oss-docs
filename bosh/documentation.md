@@ -18,15 +18,16 @@ This document describes the following components in detail and the function they
 
 #### [Installing BOSH CLI](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/bosh_cli.md) ####
 This document describes in detail installation steps for BOSH Command Line Interface.
-
-####[BOSH Installation](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/deploying_bosh.md) ####
+####[Deploying BOSH using Micro BOSH](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/deploying_bosh.md) ####
 In this section we cover how to install Micro BOSH and use it to deploy BOSH
-#### [BOSH Deployments](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/bosh_deployments.md) ####
 
-####Reference Documents ####
+###Reference Documents ###
 ##### [BOSH CLI Reference] (https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/bosh_cli_reference.md) #####
+This document provides informations about all the flags of `bosh` command line reference.
 ##### [BOSH Releases Reference ](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/bosh_releases.md) #####
 This document describes in details Releases and its sub components : Jobs, Packages and Blobs. It also talks about the configuring and publishing releases.
+##### [BOSH Deployments](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/bosh_deployments.md) #####
+
 
 #### [BOSH Troubleshooting](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/bosh_troubleshooting.md) ####
 

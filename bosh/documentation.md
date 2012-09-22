@@ -16,14 +16,25 @@ This document describes the following components in detail and the function they
 *    Health Monitor
 *    Message Bus
 
+#### Installing Cloud Foundry using BOSH on vSphere####
+
+Follow the following steps
++    Install BOSH CLI
++    Install Micro BOSH using BOSH CLI
++    Use Micro BOSH to Install BOSH
++    Deploy Cloud Foundry using BOSH
+
 #### [Installing BOSH CLI](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/bosh_cli.md) ####
 This document describes in detail installation steps for BOSH Command Line Interface.
 
 #### [Deploying Micro BOSH](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/deploying_micro_bosh.md) ####
-This document describes in detail installation steps for BOSH Command Line Interface.
+This document describes the installation steps for deploying Micro BOSH
 
 ####[Deploying BOSH using Micro BOSH](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/deploying_bosh_with_micro_bosh.md) ####
-In this section we cover how to install Micro BOSH and use it to deploy BOSH
+In this section we cover how to use Micro BOSH to deploy BOSH
+
+####[Deploy Cloud Foundry using BOSH](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/deploy_cf_vsphere.md) ####)
+In this document we describe in detail the steps to install Cloud foundry on vSphere using BOSH
 
 ###Reference Documents ###
 ##### [BOSH CLI Reference] (https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/bosh_cli_reference.md) #####

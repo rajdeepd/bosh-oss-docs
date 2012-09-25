@@ -18,7 +18,8 @@ This document describes the following components in detail and the function they
 
 ## Installing Cloud Foundry using BOSH on vSphere##
 
-Follow the following steps
+Following Steps and sections provide more detail on installing Cloud Foundry on vSphere
+
 +    Hardware requirement
 +    Installing vSphere and vCenter
 +    Install BOSH CLI

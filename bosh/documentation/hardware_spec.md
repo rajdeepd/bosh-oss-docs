@@ -22,7 +22,7 @@ Note : configuration is for each of the machines
 +     Atleast 4 NIC cards
 +     40 GB RAM
 
-Recommended Spec
+####Recommended Spec####
 
 +     8 CPUs Intel Xeon E5620 @ 2.40 GHz, 2 cores per CPU
 +     Atleast 4 NIC cards

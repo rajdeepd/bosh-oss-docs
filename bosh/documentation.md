@@ -19,10 +19,15 @@ This document describes the following components in detail and the function they
 ## Installing Cloud Foundry using BOSH on vSphere##
 
 Follow the following steps
++    Hardware requirement
++    Installing vSphere and vCenter
 +    Install BOSH CLI
 +    Install Micro BOSH using BOSH CLI
 +    Use Micro BOSH to Install BOSH
 +    Deploy Cloud Foundry using BOSH
+
+#### [Hardware Requirement](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/hardware_spec.md) ####
+This document lists the minimum hardware requirements for installing BOSH and Cloud Foundry
 
 #### [Installing BOSH CLI](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/bosh_cli.md) ####
 This document describes in detail installation steps for BOSH Command Line Interface.

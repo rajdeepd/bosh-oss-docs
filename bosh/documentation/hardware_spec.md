@@ -18,9 +18,9 @@ Note : configuration is for each of the machines
 
 ####Min spec####
 
-+    6l CPUs: Intel Xeon E5620 @ 2.40 GHz, 2 cores per CPU
-+     Atleast 4 NIC cards
-+     40 GB RAM
++    6 CPUs: Intel Xeon E5620 @ 2.40 GHz, 2 cores per CPU
++    Atleast 4 NIC cards
++    60 GB RAM
 
 ####Recommended Spec####
 
@@ -34,7 +34,7 @@ Server Brand : vSphere 5.0 compliant
 
 This could run Windows natively or on top of a ESXi host in a VM.
 
-Min Sep
+Min Spec
 +   2 CPUs Intel Xeon E5620, 4 cores per CPU
 +   8 GB RAM
 +   512 GB hard disk

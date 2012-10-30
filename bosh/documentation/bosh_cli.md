@@ -1,6 +1,7 @@
 # BOSH CLI #
 
-Before we can use BOSH we need to install the [BOSH CLI](#bosh-cli). To continue with this section, you will need a running development environment with an uploaded Stemcell. If this is not the case, you can  [BOSH installation](#bosh-installation) section.
+BOSH CLI is a command line interface used to interact with MicroBOSH and BOSH. 
+Before we can use MicroBOSH or BOSH we need to install the [BOSH CLI](#bosh-cli).
 
 ## Installing BOSH Command Line Interface ##
 

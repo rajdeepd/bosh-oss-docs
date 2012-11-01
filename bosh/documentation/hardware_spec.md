@@ -17,13 +17,13 @@ The hardware requirement depends on the size of the RAM and CPUs allocated for e
 
 Note : configuration is for each of the machines
 
-#### Min spec####
+##### Min spec
 
 +    4 CPUs: Intel Xeon E5620 @ 2.40 GHz, 2 cores per CPU
 +    Atleast 4 NIC cards
 +    60 GB RAM
 
-#### Recommended Spec####
+##### Recommended Spec
 
 +     8 CPUs Intel Xeon E5620 @ 2.40 GHz, 2 cores per CPU
 +     Atleast 4 NIC cards or Dual HBA Cards for Fiber Channel per Host
@@ -35,14 +35,14 @@ Server Brand : vSphere 5.0 compliant please refer to VMware certified hardware l
 
 This could run Windows natively or on top of a ESXi host in a VM.
 
-#### Min Spec
+##### Min Spec
 +   1 CPUs Intel Xeon E5620, 4 cores per CPU
 +   8 GB RAM
 +   256 GB hard disk
 
 Server Brand : vSphere 5.0 compliant
 
-#### Recommeded Spec
+##### Recommeded Spec
 +   2 CPUs Intel Xeon E5620, 4 cores per CPU
 +   8 GB RAM
 +   2 x 256 GB hard disk
@@ -51,6 +51,7 @@ Server Brand : vSphere 5.0 compliant
 
 Min 1 TB of Network storage - this could be SAN based storage or EMC VNX based storage.
 Ethernet of Fiber Channel, Should support Jumbo Frames
+
 ### Switch ###
 
 ##### Min Spec
@@ -61,5 +62,3 @@ Ethernet of Fiber Channel, Should support Jumbo Frames
 +   L3 switch with 48 ports and 100 GB RAM
 +   12 CPUs Intel Xeon E5649 @ 2.53 GHz
 +   Brand : Cisco or Dell
-
-

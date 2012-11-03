@@ -71,7 +71,7 @@ Output of this command is similar to the listing below
     | vcap_redis/0                | running | infrastructure | 192.168.10.46  |
     +-----------------------------+---------+----------------+----------------+
     
-    VMs total: 49`
+    VMs total: 49
 
 The first time you target the Director, you'll be asked to provide login credentials. These were specified in your BOSH [deployment manifest](./examples/bosh_manifest.yml).
 

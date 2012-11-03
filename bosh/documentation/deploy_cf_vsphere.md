@@ -73,7 +73,7 @@ Output of this command is similar to the listing below
     
     VMs total: 49
 
-The first time you target the Director, you'll be asked to provide login credentials. These were specified in your BOSH [deployment manifest](./examples/bosh_manifest.yml).
+The first time you target the Director, you'll be asked to provide login credentials. These were specified in your BOSH [deployment manifest](../tutorial/examples/bosh_manifest.yml).
 
 + `bosh target 10.1.4.225:25555 # Note the default port setting`
 
@@ -82,7 +82,42 @@ The first time you target the Director, you'll be asked to provide login credent
 
 Your new Director needs a stemcell in order to deploy your cloud application platform. The steps should seem familiar now. Use your existing public stemcell in the `~/stemcells` directory. Do not use your Micro BOSH stemcell in this case.
 
-+ `bosh upload stemcell ~/stemcells/bosh-stemcell-0.5.2.tgz`
++ `bosh upload stemcell ~/stemcells/bosh-stemcell-vsphere-0.6.4.tgz`
+
+Output of this command is shown below
+
+	Verifying stemcell...
+	File exists and readable                                     OK
+	Using cached manifest...
+	Stemcell properties                                          OK
+
+	Stemcell info
+	-------------
+	Name:    bosh-stemcell
+	Version: 0.6.4
+
+	Checking if stemcell already exists...
+	No
+
+	Uploading stemcell...
+	bosh-stemcell: 100% |ooooooooooooooooooooooooooooooooooooooo| 277.1MB  78.8MB/s 		Time: 00:00:03
+
+	Director task 1
+
+	Update stemcell
+	extracting stemcell archive (00:00:06)
+	verifying stemcell manifest (00:00:00)                                                         
+	checking if this stemcell already exists (00:00:00)                                               
+	uploading stemcell bosh-stemcell/0.6.4 to the cloud (00:01:08)                                    
+	save stemcell: bosh-stemcell/0.6.4 (sc-a85ab3dc-8d3d-4228-83d0-5be2436a1886) (00:00:00)           
+	Done                    5/5 00:01:14                                                                
+	Task 1 done
+	Started		2012-09-26 10:14:26 UTC
+	Finished	2012-09-26 10:15:40 UTC
+	Duration	00:01:14
+
+	Stemcell uploaded and created
+
 
 ## Get Cloud Release ##
 
@@ -94,19 +129,21 @@ To upload the release to your Director, you'll need to be in a special 'release'
 
 1. ` cd cf-release`
 
-1. `bosh upload release releases/appcloud-82.yml`
+1. `bosh upload release releases/appcloud-106.yml`
 
 You'll see a flurry of output as BOSH configures and uploads release components. 
 
 ## Create Cloud Deployment Manifest ##
 
-For the purpose of this tutorial, we'll use a sample [deployment manifest](./examples/dev124.yml)
+For the purpose of this tutorial, we'll use a sample [deployment manifest](../tutorial/examples/dev124.yml)
 
 Keep in mind that a manifest of this size requires significant virtual hardware resources to run. According to the manifest file, you ideally need 72 vCPUs, 200GB of RAM, and 1 TB of storage. The more IOPS you can throw at the deployment, the better.
 
 Use the BOSH CLI to set your current deployment. If you placed your deployment manifest yml in ~/deployments/dev124, run the following command: 
 
 + `bosh deployment ~/deployments/dev124/dev124.yml`
+
+   `Deployment set to '/home/rajdeep/deployments/cloudfoundry_new.yml'`
 
 
 ## Deploy ##
@@ -116,6 +153,32 @@ Let's summarize what we accomplished in this section -- we mirrored the steps we
 Now you get to watch your vCenter light up with tasks:
 
 + `bosh deploy`
+	
+    Output of the above command is pretty long and is partially listed below
+
+   .                                              
+    
+    Getting deployment properties from director...
+	Unable to get properties list from director, trying without it...
+	Compiling deployment manifest...
+	Cannot get current deployment information from director, possibly a new deployment
+    Please review all changes carefully
+      Deploying <filename>.yml' to dev124'(type 'yes' to continue): yes
+    Director task 31
+    Preparing deployment
+        binding deployment (00:00:00)                                                                     
+        binding releases (00:00:00)                                                                       
+        binding existing deployment (00:00:00)                                                            
+        binding resource pools (00:00:00)                                                                 
+    binding stemcells (00:00:00)                                                                      
+    binding templates (00:00:00)                                                                      
+    binding unallocated VMs (00:00:01)                                                                
+    binding instance networks (00:00:00)                                                              
+    Done                    8/8 00:00:01        Preparing package compilation
+    finding packages to compile (00:00:00)                                                            
+    Done                    1/1 00:00:00                                                                
+
+
 
 If you'd like to learn more about what happens during the deployment process, read the official documentation's [explanation of a deployment](https://github.com/cloudfoundry/oss-docs/blob/master/bosh/documentation/documentation.md#bosh-deployments).
 
@@ -155,7 +218,7 @@ To add a user, run `vmc add-user` and follow the on-screen prompts to create a u
 
 *Where do you specify 'yourdomain.com' in the deployment? In the deployment manifest, there is a `domain: ` property. Put your domain here.
 
-*Do you need DNS configured for your CF instance? Yes. The easiest way to set this up is with a wildcard DNS entry that points to your domain. The router component of CF will take care of routing requests to the correct apps.
+*Do you need DNS configured for your CF instance? Yes. The easiest way to set this up is with a wildcard DNS entry that points to your domain. The router component of CF will take care of routing requests to the correct apps. The wild card DNS entry needs to point to the IP where router is running.s
 
 
 # Summary #

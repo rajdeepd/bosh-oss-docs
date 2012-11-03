@@ -7,9 +7,10 @@ By now the deployment steps should seem somewhat familiar. We'll target our new 
 You'll need to target your new BOSH Director. Find out its IP address by running:
 
 + `bosh vms`
-   Output of this command is similar to the listing below
 
-   `$ bosh vms
+Output of this command is similar to the listing below
+
+    $ bosh vms
     Deployment cloudfoundry-106
     
     Director task 176

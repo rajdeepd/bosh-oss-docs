@@ -1,4 +1,4 @@
-# BOSH CLI #
+           # BOSH CLI #
 
 BOSH CLI is a command line interface used to interact with MicroBOSH and BOSH. 
 Before we can use MicroBOSH or BOSH we need to install the [BOSH CLI](#bosh-cli).
@@ -32,14 +32,9 @@ Ruby can be installed using either rbenv or rvm. Please refer to the following d
 		git config --global user.name "Firstname Lastname"
 		git config --global user.email "your_email@youremail.com"
 
-1. Install out gerrit-cli gem
+1. Install gerrit-cli gem
 
 		gem install gerrit-cli
-
-1. Clone BOSH repositories from Gerrit
-
-		gerrit clone ssh://[<your username>@]reviews.cloudfoundry.org:29418/cf-release.git
-		gerrit clone ssh://[<your username>@]reviews.cloudfoundry.org:29418/bosh.git
 
 1. Run some rake tasks to install the BOSH CLI
 

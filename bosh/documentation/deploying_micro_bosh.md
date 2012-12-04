@@ -127,14 +127,14 @@ If you have 2 datastores called "vnx:1",  "vnx:2" and you would like to separate
 		% cd stemcells
 		% bosh public stemcells
 		+-------------------------------+----------------------------------------------------+
-		| Name                              | Tags                                             |
-		+-------------------------------+----------------------------------------------------+
-		| bosh-stemcell-aws-0.6.4.tgz       | aws, stable                                        |
-		| bosh-stemcell-vsphere-0.6.4.tgz   | vsphere, stable                                    |
-		| bosh-stemcell-vsphere-0.6.7.tgz   | vsphere, stable                                    | 
-		| micro-bosh-stemcell-aws-0.6.4.tgz | aws, micro, stable                                 |
-                | micro-bosh-stemcell-vsphere-0.6.4.tgz | vsphere, micro, stable                         |
-		+-------------------------------+----------------------------------------------------+
+		| Name                                  | Tags                                             |
+		+---------------------------------------+--------------------------------------------------+
+		| bosh-stemcell-aws-0.6.4.tgz           | aws, stable                                      |
+		| bosh-stemcell-vsphere-0.6.4.tgz       | vsphere, stable                                  |
+		| bosh-stemcell-vsphere-0.6.7.tgz       | vsphere, stable                                  | 
+		| micro-bosh-stemcell-aws-0.6.4.tgz     | aws, micro, stable                               |
+		| micro-bosh-stemcell-vsphere-0.6.4.tgz | vsphere, micro, stable                           |
+		+---------------------------------------+--------------------------------------------------+
 		To download use 'bosh download public stemcell <stemcell_name>'.
 		% bosh download public stemcell micro-bosh-stemcell-0.1.0.tgz
 

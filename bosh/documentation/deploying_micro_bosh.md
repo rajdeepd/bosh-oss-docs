@@ -1,4 +1,4 @@
-# Deploying Micro BOSH #
+     # Deploying Micro BOSH #
 
 Installation of BOSH is done using something called Micro BOSH, which is a single VM that includes all of the BOSH components in the same image. If you want to play around with BOSH, or create a simple development setup, you can install Micro BOSH using the [BOSH Deployer](#bosh-deployer). If you would like to use BOSH in production to manage a distributed system, you also use the BOSH Deployer, install Micro BOSH, and then use it as a means to deploy the final distributed system on multiple VMs.
 
@@ -127,12 +127,13 @@ If you have 2 datastores called "vnx:1",  "vnx:2" and you would like to separate
 		% cd stemcells
 		% bosh public stemcells
 		+-------------------------------+----------------------------------------------------+
-		| Name                          | Url                                                |
+		| Name                              | Tags                                             |
 		+-------------------------------+----------------------------------------------------+
-		| bosh-stemcell-0.4.7.tgz       | https://blob.cfblob.com/rest/objects/4e4e7...h120= |
-		| micro-bosh-stemcell-0.1.0.tgz | https://blob.cfblob.com/rest/objects/4e4e7...5Mms= |
-		| bosh-stemcell-0.3.0.tgz       | https://blob.cfblob.com/rest/objects/4e4e7...mw1w= |
-		| bosh-stemcell-0.4.4.tgz       | https://blob.cfblob.com/rest/objects/4e4e7...r144= |
+		| bosh-stemcell-aws-0.6.4.tgz       | aws, stable                                        |
+		| bosh-stemcell-vsphere-0.6.4.tgz   | vsphere, stable                                    |
+		| bosh-stemcell-vsphere-0.6.7.tgz   | vsphere, stable                                    | 
+		| micro-bosh-stemcell-aws-0.6.4.tgz | aws, micro, stable                                 |
+                | micro-bosh-stemcell-vsphere-0.6.4.tgz | vsphere, micro, stable                         |
 		+-------------------------------+----------------------------------------------------+
 		To download use 'bosh download public stemcell <stemcell_name>'.
 		% bosh download public stemcell micro-bosh-stemcell-0.1.0.tgz
@@ -144,7 +145,7 @@ If you have 2 datastores called "vnx:1",  "vnx:2" and you would like to separate
 		% bosh micro deployment dev33
 		Deployment set to '/var/vcap/deployments/dev33/micro_bosh.yml'
 
-1. Deploy a new micro BOSH instance and create a new persistent disk.
+1. Deploy a new micro BOSH instance.
 
 		% bosh micro deploy ~/stemcells/micro-bosh-stemcell-0.1.0.tgz
 

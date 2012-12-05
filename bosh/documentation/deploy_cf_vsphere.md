@@ -4,74 +4,32 @@ By now the deployment steps should seem somewhat familiar. We'll target our new 
  
 ## Target New BOSH Director ##
 
-You'll need to target your new BOSH Director. Find out its IP address by running:
+You'll need to target your new BOSH Director. First target to Micro BOSH and find out the IP address of BOSH Director as follows:
 
++ `bosh target 192.168.9.20` #IP address of Micro BOSH
 + `bosh vms`
 
 Output of this command is similar to the listing below
 
     $ bosh vms
-    Deployment cloudfoundry-106
-    
-    Director task 176
-    
-    Task 176 done
-    
-    +-----------------------------+---------+----------------+----------------+
-    | Job/index                   | State   | Resource Pool  | IPs            |
-    +-----------------------------+---------+----------------+----------------+
-    | acm/0                       | running | infrastructure | 192.168.10.48  |
-    | acmdb/0                     | running | infrastructure | 192.168.10.47  |
-    | backup_manager/0            | running | infrastructure | 192.168.10.130 |
-    | ccdb_postgres/0             | running | infrastructure | 192.168.10.42  |
-    | cloud_controller/0          | running | infrastructure | 192.168.10.194 |
-    | cloud_controller/1          | running | infrastructure | 192.168.10.195 |
-    | collector/0                 | running | infrastructure | 192.168.10.191 |
-    | dashboard/0                 | running | infrastructure | 192.168.10.192 |
-    | dea/0                       | running | deas           | 192.168.10.198 |
-    | dea/1                       | running | deas           | 192.168.10.199 |
-    | dea/2                       | running | deas           | 192.168.10.200 |
-    | dea/3                       | running | deas           | 192.168.10.201 |
-    | debian_nfs_server/0         | running | infrastructure | 192.168.10.40  |
-    | hbase_master/0              | running | infrastructure | 192.168.10.54  |
-    | hbase_slave/0               | running | infrastructure | 192.168.10.51  |
-    | hbase_slave/1               | running | infrastructure | 192.168.10.52  |
-    | hbase_slave/2               | running | infrastructure | 192.168.10.53  |
-    | health_manager/0            | running | infrastructure | 192.168.10.109 |
-    | mongodb_gateway/0           | running | infrastructure | 192.168.10.203 |
-    | mongodb_node/0              | running | infrastructure | 192.168.10.70  |
-    | mongodb_node/1              | running | infrastructure | 192.168.10.71  |
-    | mysql_gateway/0             | running | infrastructure | 192.168.10.202 |
-    | mysql_node/0                | running | infrastructure | 192.168.10.61  |
-    | mysql_node/1                | running | infrastructure | 192.168.10.62  |
-    | nats/0                      | running | infrastructure | 192.168.10.41  |
-    | opentsdb/0                  | running | infrastructure | 192.168.10.44  |
-    | postgresql_gateway/0        | running | infrastructure | 192.168.10.206 |
-    | postgresql_node/0           | running | infrastructure | 192.168.10.100 |
-    | postgresql_node/1           | running | infrastructure | 192.168.10.101 |
-    | rabbit_gateway/0            | running | infrastructure | 192.168.10.205 |
-    | rabbit_node/0               | running | infrastructure | 192.168.10.90  |
-    | rabbit_node/1               | running | infrastructure | 192.168.10.91  |
-    | redis_gateway/0             | running | infrastructure | 192.168.10.204 |
-    | redis_node/0                | running | infrastructure | 192.168.10.80  |
-    | redis_node/1                | running | infrastructure | 192.168.10.81  |
-    | router/0                    | running | infrastructure | 192.168.10.111 |
-    | router/1                    | running | infrastructure | 192.168.10.112 |
-    | serialization_data_server/0 | running | infrastructure | 192.168.10.133 |
-    | service_utilities/0         | running | infrastructure | 192.168.10.131 |
-    | services_nfs/0              | running | infrastructure | 192.168.10.60  |
-    | services_redis/0            | running | infrastructure | 192.168.10.82  |
-    | stager/0                    | running | infrastructure | 192.168.10.196 |
-    | stager/1                    | running | infrastructure | 192.168.10.197 |
-    | syslog_aggregator/0         | running | infrastructure | 192.168.10.43  |
-    | uaa/0                       | running | infrastructure | 192.168.10.193 |
-    | uaadb/0                     | running | infrastructure | 192.168.10.45  |
-    | vblob_gateway/0             | running | infrastructure | 192.168.10.207 |
-    | vblob_node/0                | running | infrastructure | 192.168.10.120 |
-    | vcap_redis/0                | running | infrastructure | 192.168.10.46  |
-    +-----------------------------+---------+----------------+----------------+
-    
-    VMs total: 49
+      Deployment 'bosh'
+      
+      Director task 9
+
+      Task 9 done
+
+      +-----------------+---------+---------------+--------------+
+      | Job/index       | State   | Resource Pool | IPs          |
+      +-----------------+---------+---------------+--------------+
+      | unknown/unknown | running | small         | 192.168.9.27 |
+      | blobstore/0     | running | small         | 192.168.9.25 |
+      | director/0      | running | director      | 192.168.9.24 |
+      | nats/0          | running | small         | 192.168.9.21 |
+      | postgres/0      | running | small         | 192.168.9.22 |
+      | redis/0         | running | small         | 192.168.9.23 |
+      +-----------------+---------+---------------+--------------+
+
+      VMs total: 6      
 
 The first time you target the Director, you'll be asked to provide login credentials. These were specified in your BOSH [deployment manifest](../tutorial/examples/bosh_manifest.yml).
 

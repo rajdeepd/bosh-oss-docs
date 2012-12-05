@@ -136,7 +136,7 @@ If you have 2 datastores called "vnx:1",  "vnx:2" and you would like to separate
 		| micro-bosh-stemcell-vsphere-0.6.4.tgz | vsphere, micro, stable                           |
 		+---------------------------------------+--------------------------------------------------+
 		To download use 'bosh download public stemcell <stemcell_name>'.
-		% bosh download public stemcell micro-bosh-stemcell-0.1.0.tgz
+		% bosh download public stemcell micro-bosh-stemcell-0.6.4.tgz
 
 
 1. Set the micro BOSH Deployment using:
@@ -147,11 +147,11 @@ If you have 2 datastores called "vnx:1",  "vnx:2" and you would like to separate
 
 1. Deploy a new micro BOSH instance.
 
-		% bosh micro deploy ~/stemcells/micro-bosh-stemcell-0.1.0.tgz
+		% bosh micro deploy ~/stemcells/micro-bosh-stemcell-0.6.4.tgz
 
 1. Update an existing micro BOSH instance. The existing persistent disk will be attached to the new VM.
 
-		% bosh micro deploy ~/stemcells/micro-bosh-stemcell-0.1.1.tgz --update
+		% bosh micro deploy ~/stemcells/micro-bosh-stemcell-0.6.4.tgz --update
 
 ### Deleting a micro BOSH deployment ###
 

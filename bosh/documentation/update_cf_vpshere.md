@@ -1,6 +1,6 @@
 # Update Cloud Application Deployment Using Bosh #
 
-This document helps you to update the Cloud Foundry Deployment with a new release. Here we upload new cloud foundry appcloud release, configure and set a cloud application platform deployment manifest, and run: `bosh deploy`.
+This document helps you to update the Cloud Foundry Deployment with a new release. Here we upload new cloud foundry appcloud release, configure and set a cloud application platform deployment manifest, and run: `bosh deploy`
 
 Note: Target should be set to BOSH Director (which was set while deploying Cloud Foundry). You can check it by running following command:
 + `bosh status`
@@ -22,7 +22,7 @@ Output of the above command is similar to listing below:
              Manifest  /home/rajdeep/cloudfoundry_2/deployments/cf/cloudfoundry.yml
        
 
-If it is not set to bosh director follow the steps on the following link to set it:
+If it is not set to BOSH director then follow the steps on this link to set it to BOSH DIRECTOR:
 [Deploy Cloud Application Platform - Cloud Foundry](https://github.com/cloudfoundry/oss-docs/blob/master/bosh/documentation/deploy_cf_vsphere.md)
 
 ## Get Latest Cloud Release ##
@@ -148,7 +148,7 @@ Output of the above command is similar to listing below:
 	
 	VMs total: 50
 
-Also launch the applications and make sure that all are running fine.
++ Also launch the applications and make sure that all are running fine.
 
 
 

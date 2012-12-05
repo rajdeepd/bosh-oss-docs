@@ -1,4 +1,4 @@
-           # BOSH CLI #
+# BOSH CLI #
 
 BOSH CLI is a command line interface used to interact with MicroBOSH and BOSH. 
 Before we can use MicroBOSH or BOSH we need to install the [BOSH CLI](#bosh-cli).

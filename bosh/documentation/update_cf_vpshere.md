@@ -23,7 +23,7 @@ Output of the above command is similar to listing below:
        
 
            If it is not set to bosh director follow the steps on the following link to set it:
-           Deploy Cloud Application Platform - Cloud Foundry(https://github.com/cloudfoundry/oss-docs/blob/master/bosh/documentation/         deploy_cf_vsphere.md)
+           [Deploy Cloud Application Platform - Cloud Foundry](https://github.com/cloudfoundry/oss-docs/blob/master/bosh/documentation/deploy_cf_vsphere.md)
 
 ## Get Latest Cloud Release ##
 

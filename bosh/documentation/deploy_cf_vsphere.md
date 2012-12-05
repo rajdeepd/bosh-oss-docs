@@ -4,7 +4,7 @@ By now the deployment steps should seem somewhat familiar. We'll target our new 
  
 ## Target New BOSH Director ##
 
-You'll need to target your new BOSH Director. First target to Micro BOSH and find out the IP address of BOSH Director as follows:
+You'll need to target your new BOSH Director. First set the target to Micro BOSH and find out the IP address of BOSH Director as follows:
 
 + `bosh target 192.168.9.20` #IP address of Micro BOSH
 + `bosh vms`
@@ -33,7 +33,7 @@ Output of this command is similar to the listing below
 
 The first time you target the Director, you'll be asked to provide login credentials. These were specified in your BOSH [deployment manifest](../tutorial/examples/bosh_manifest.yml).
 
-+ `bosh target 10.1.4.225:25555 # Note the default port setting`
++ `bosh target 192.168.9.24:25555 # Note the default port setting`
 
 
 ## Upload Stemcell ##

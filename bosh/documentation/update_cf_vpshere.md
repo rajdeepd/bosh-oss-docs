@@ -5,7 +5,7 @@ This document helps you to update the Cloud Foundry Deployment with a new releas
 Note: Target should be set to BOSH Director (which was set while deploying Cloud Foundry). You can check it by running following command:
       + `bosh status`
 
-      Output of the above command is similar to listing below:
+ Output of the above command is similar to listing below:
 
           $ bosh status
             Updating director data... done
@@ -56,19 +56,19 @@ Now you get to watch your vCenter light up with tasks:
 
 + `bosh deploy`
 
-   Output of the above command is pretty long and is partially listed below;
+Output of the above command is pretty long and is partially listed below;
 
-   $ bosh deploy 
-     Getting deployment properties from director...
-     Compiling deployment manifest...
-     Detecting changes in deployment...
+        $ bosh deploy 
+          Getting deployment properties from director...
+          Compiling deployment manifest...
+          Detecting changes in deployment...
 
-     Release
-     changed version:
-      - 106
-      + 119
-     Release version has changed: 106 -> 119
-     Are you sure you want to deploy this version? (type 'yes' to continue): yes
+          Release
+          changed version:
+          - 106
+          + 119
+          Release version has changed: 106 -> 119
+          Are you sure you want to deploy this version? (type 'yes' to continue): yes
 
 
 If you'd like to learn more about what happens during the deployment process, read the official documentation's [explanation of a deployment](https://github.com/cloudfoundry/oss-docs/blob/master/bosh/documentation/documentation.md#bosh-deployments).

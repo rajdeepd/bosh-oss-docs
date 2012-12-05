@@ -22,8 +22,8 @@ Output of the above command is similar to listing below:
              Manifest  /home/rajdeep/cloudfoundry_2/deployments/cf/cloudfoundry.yml
        
 
-           If it is not set to bosh director follow the steps on the following link to set it:
-           [Deploy Cloud Application Platform - Cloud Foundry](https://github.com/cloudfoundry/oss-docs/blob/master/bosh/documentation/deploy_cf_vsphere.md)
+If it is not set to bosh director follow the steps on the following link to set it:
+[Deploy Cloud Application Platform - Cloud Foundry](https://github.com/cloudfoundry/oss-docs/blob/master/bosh/documentation/deploy_cf_vsphere.md)
 
 ## Get Latest Cloud Release ##
 

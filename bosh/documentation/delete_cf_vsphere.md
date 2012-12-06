@@ -1,10 +1,10 @@
 # Delete Cloud Foundry Deployment and BOSH #
 
-This document helps you to delete Cloud Foundry Deployment and BOSH Deployment.
+This document explains how to delete a  Cloud Foundry Deployment and BOSH Deployment.
 
-First, we will delete the Cloud Foundry deployment as follows:
+##Deleting the Cloud Foundry Deployment and Release##
 
-1.Go to the cloudfoundry deployment directory.
+1. Go to the cloudfoundry deployment directory.
 
 + `cd /home/user/cloudfoundry/deployments`
 
@@ -40,11 +40,11 @@ First, we will delete the Cloud Foundry deployment as follows:
            Deleting instances
 
 
-4.Once cloudfoundry is deleted, nest step is to delete the appcloud release.You can get the appcloud release name as follows:
+4. Once Cloud Foundry is deleted, nest step is to delete the Cloud Foundry  release.You can get the release name as follows:
 
-+ `bosh realeases`
++ `bosh releases`
 
-   Output of the above command is similar to listing below:
+   Output of the above command is similar to listing below. Cloud Foundry's release name uploaded into bosh is appcloud.
 
           $ bosh releases
 
@@ -57,7 +57,7 @@ First, we will delete the Cloud Foundry deployment as follows:
 
             Releases total: 1
 
-5.Execute the following command to delete appcloud release:   
+5. Execute the following command to delete the Cloud Foundry release:   
 
 + `bosh delete release appcloud`
 
@@ -71,7 +71,12 @@ First, we will delete the Cloud Foundry deployment as follows:
 
             Deleting packages
 
-6.So Cloud Foundry has been deleted, we can now delete BOSH Deployment.First we have to delete the BOSH stemcell as follows:
+6. This completes the deletion of Cloud Foundry deployment release from BOSH.
+
+## Delete BOSH Deployment##   
+
+1. First delete the BOSH stemcell as follows
+
 
 + `bosh delete stemcell bosh-stemcell 0.6.4` # you can find stemcell name in the output of `bosh deployment` which we executed above
 
@@ -86,7 +91,10 @@ First, we will delete the Cloud Foundry deployment as follows:
 
             Deleting stemcell from cloud 
 
-7.Once stemcell is deleted,the deployment target should have been set to Micro BOSH.Now BOSH Deployment can be deleted.Execute following command to get the name of BOSH deployment:
+2. Once stemcell is deleted,the deployment target should be set to Micro BOSH. 
+3. Now BOSH Deployment can be deleted.
+    
+Execute following command to get the name of BOSH deployment:
 
 + `bosh deployments`
    
@@ -102,11 +110,11 @@ First, we will delete the Cloud Foundry deployment as follows:
 
           Deployments total: 1
 
-8.Execute following command to delete the BOSH deployment:
+Execute following command to delete the BOSH deployment:
 
 +`bosh delete deployment bosh`
 
-  Output of the above command is partially listed below:
+Output of the above command is partially listed below:
 
         $bosh delete deployment bosh 
 
@@ -120,5 +128,4 @@ First, we will delete the Cloud Foundry deployment as follows:
 
          Deleting instances
 
- 
-
+ This deletes the Bosh deployment from Micro BOSH.

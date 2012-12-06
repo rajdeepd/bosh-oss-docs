@@ -1,6 +1,6 @@
 # Update Cloud Foundry Deployment Using Bosh #
 
-This document helps you to update the Cloud Foundry Deployment with a new release. We will upload a new Cloud Foundry release, configure and set a cloud application platform deployment manifest, and run: `bosh deploy`
+This document helps you to update the Cloud Foundry Deployment with a new release. We will upload a new Cloud Foundry release, configure the deployment manifest, and run: `bosh deploy`
 
 Note: Target should be set to BOSH Director (which was set while deploying Cloud Foundry). You can check it by running following command:
 + `bosh status`
@@ -42,16 +42,19 @@ For the purpose of this tutorial, we'll use a sample [deployment manifest](https
 
 Keep in mind that a manifest of this size requires significant virtual hardware resources to run.
 
-Use the BOSH CLI to set your current deployment. If you placed your deployment manifest yml in ~/deployments/dev124, run the following command: 
+Use the BOSH CLI to set your current deployment. If you placed your deployment manifest yml in `~/cloudfoundry/deployments/cf`, run the following command: 
 
-+ `bosh deployment ~/cloudfoundry_2/deployments/cf/cloudfoundry.yml` # Path to Cloud Foundry Manifest File
-   Deployment set to `/home/user/cloudfoundry_2/deployments/cf/cloudfoundry.yml'
++ `bosh deployment ~/cloudfoundry/deployments/cf/cloudfoundry.yml` 
 
 ## Deploy ##
 
-Let's summarize what we accomplished in this section. We uploaded the new release to the Director, configured a deployment manifest, and set the deployment manifest as the current deployment using the BOSH CLI. 
+Let's summarize what we accomplished in this section. 
 
-Now you get to watch your vCenter light up with tasks:
++ We uploaded the new release to the Director
++ Configured a deployment manifest
++ Set the deployment manifest as the current deployment using the BOSH CLI. 
+
+Now execute the deploy command from BOSH CLI:
 
 
 + `bosh deploy`

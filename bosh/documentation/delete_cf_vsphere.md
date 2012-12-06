@@ -73,7 +73,7 @@ First, we will delete the Cloud Foundry deployment as follows:
 
 6.So Cloud Foundry has been deleted, we can now delete BOSH Deployment.First we have to delete the BOSH stemcell as follows:
 
-+`bosh delete stemcell bosh-stemcell 0.6.4` # you can find stemcell name in the output of `bosh deployment` which we executed above
++ `bosh delete stemcell bosh-stemcell 0.6.4` # you can find stemcell name in the output of `bosh deployment` which we executed above
 
    Output of the above command is partially listed below:
 

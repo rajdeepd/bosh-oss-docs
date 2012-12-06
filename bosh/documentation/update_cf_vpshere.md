@@ -1,4 +1,4 @@
-# Update Cloud Application Deployment Using Bosh #
+# Update Cloud Foundry Deployment Using Bosh #
 
 This document helps you to update the Cloud Foundry Deployment with a new release. Here we upload new cloud foundry appcloud release, configure and set a cloud application platform deployment manifest, and run: `bosh deploy`
 

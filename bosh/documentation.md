@@ -47,7 +47,11 @@ In this section we cover how to use Micro BOSH to deploy BOSH
 In this document we describe in detail the steps to install Cloud foundry on vSphere using BOSH
 
 ## Update or Delete Cloud Foundry using BOSH  ##
+<<<<<<< HEAD
+##### [Update Cloud Foundry] (https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/update_cf_vpshere.md) #####
+=======
 ##### [Update Cloud Foundry](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/update_cf_vsphere.md) #####
+>>>>>>> f22b5746355faf423eff98cad9bf4f87de8f61f4
 This document describes how to update a Cloud Foundry deployment with a new release
 
 ##### [Delete Cloud Foundry and Bosh Deployments] (https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/delete_cf_vsphere.md) #####

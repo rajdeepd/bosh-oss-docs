@@ -32,9 +32,9 @@ Please refer to the [API documentation](https://github.com/cloudfoundry/bosh/blo
 
 The Director is the core orchestrating component in BOSH which controls creation of VMs, deployment, and other life cycle events of software and services. Command and control is handed over to the the Director-Agent interaction after the CPI has created resources.
 
-There are specific sub components to manage each of the tasks mentioned above. All these are instances of the following classes references from the ApiController.
+There are specific sub components to manage each of the tasks mentioned above. All these are instances of the following classes referenced from the ApiController.
 
-![director-components](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/images/director-components.png)
+![director-components](https://raw.github.com/cloudfoundry/oss-docs/master/bosh/documentation/images/director-components.png)
 
 ### Deployment Manager ###
 Responsible for creating, updating and deleting the deployments which are specified in the deployment file.
@@ -59,8 +59,7 @@ Some of the functions it performs are
 
 Figure below describes the flow when a user tries to SSH into a VM using Bosh CLI
 
-![director-instance_manager_1](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/images/director-instance_manager_1.png)
-
+![director-instance_manager_1](https://raw.github.com/cloudfoundry/oss-docs/master/bosh/documentation/images/director-instance_manager_1.png)
 
 ### Problem Manager ###
 This component helps scan a deployment for problems and helps apply resolutions.
@@ -93,15 +92,13 @@ Director routes the request coming at the following endpoints to the release man
 #### Lifecycle of a Release ####
 Figure below shows the interaction between various components of a Director when a release is created/ updated or deleted.
 
-![release-lifecycle](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/images/director-release-manager.png)
-
-
+![release-lifecycle](https://raw.github.com/cloudfoundry/oss-docs/master/bosh/documentation/images/director-release-manager.png)
 
 
 ### Stemcell Manager ###
 Stemcell Manager manages the Stem cells. It is responsible for creating, deleting or finding a stemcell.
 
-![https://github.com/rajdeepd/bosh-oss-docs/bosh/documentation](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/images/director-stemcell-manager.png)
+![director-stemcell-manager](https://raw.github.com/cloudfoundry/oss-docs/master/bosh/documentation/images/director-stemcell-manager.png)
 
 Table below shows the endpoints exposed by the director for managing the Stemcells lifecycle
 
@@ -115,7 +112,7 @@ Table below shows the endpoints exposed by the director for managing the Stemcel
 ### Task Manager ###
 Task Manager is responsible for managing the tasks which are created and are being run the Job Runner
 
-![https://github.com/rajdeepd/bosh-oss-docs/bosh/documentation](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/images/director-task-manager.png)
+![director-task-manager](https://raw.github.com/cloudfoundry/oss-docs/master/bosh/documentation/images/director-task-manager.png)
 
 Following Http Endpoints are exposed by the Director to get information about a task
 
@@ -151,9 +148,7 @@ Helps fetch the VM State by creating a task which runs the Hob : VmState
 
 The vm state is fetched by creating a GET request on the `/deployments/:name/vms` endpoint in the Director. `name` is the name of the deployment.
 
-director-vm-state-manager
-![https://github.com/rajdeepd/bosh-oss-docs/bosh/documentation](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/images/director-vm-state-manager.png)
-
+![director-vm-state-manager](https://raw.github.com/cloudfoundry/oss-docs/master/bosh/documentation/images/director-vm-state-manager.png)
 
 ## BOSH Agent ##
 

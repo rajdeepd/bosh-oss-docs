@@ -1,4 +1,4 @@
-     # Deploying Micro BOSH #
+# Deploying Micro BOSH #
 
 Installation of BOSH is done using something called Micro BOSH, which is a single VM that includes all of the BOSH components in the same image. If you want to play around with BOSH, or create a simple development setup, you can install Micro BOSH using the [BOSH Deployer](#bosh-deployer). If you would like to use BOSH in production to manage a distributed system, you also use the BOSH Deployer, install Micro BOSH, and then use it as a means to deploy the final distributed system on multiple VMs.
 

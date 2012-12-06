@@ -1,14 +1,19 @@
 # Install and prepare vSphere Cluster#
 
-Before we start the cloudfoundry deployment we need to setup a vsphere cluster. In this guide we will be using minimal configuration to setup the cluster. Check out the 
-[Hardware Requirement](https://github.com/rajdeepd/bosh-oss-docs/blob/master/bosh/documentation/hardware_spec.md) page for more information on the hardware used in this 
+Before we start the cloudfoundry deployment we need to setup a vsphere cluster. In this guide we will be using minimal configuration to setup the cluster:
+
+1. 2 servers to install ESXi ( x core processor , y GB Ram : x and y depend on the hardware config chosen)
+2. 1 server to install vcenter(this can also be a vm in any of the esxi server)
+3. Storage server (SAN is recommended but you can also use other storages like openfiler)
+4. Switch 
+5. Network : IP Ranges atleast 100 IPs
 
 ##Install ESXi and vCenter##
 
 Cloud Foundry can be deployed on top of variety of Infrastructures, ESXi and vCenter happen to be one of them. 
 There is no difference from the standard installation. After installation your ESXi will look like the image below
 
-![esxi] (https://raw.github.com/aneeshep/bosh-oss-docs/master/bosh/documentation/images/esxi5.png)
+![esxi] (https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/images/esxi5.png)
 
 ##Prepare vCenter for Cloud Foundry Deployment##
 

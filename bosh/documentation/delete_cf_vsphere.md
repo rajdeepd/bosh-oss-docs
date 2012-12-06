@@ -22,6 +22,7 @@ First, we will delete the Cloud Foundry deployment as follows:
 3. Run the following command to delete the Cloud Foundry deployment:
   
 + `bosh delete deployment cloudfoundry`
+
    Output of the above command is similar to listing below:
 
            bosh delete deployment cloudfoundry
@@ -35,4 +36,7 @@ First, we will delete the Cloud Foundry deployment as follows:
            Director task 42
 
            Deleting instances
-                   
+
+
+           
+           

@@ -1,4 +1,4 @@
-# Delete Cloud Foundry Deployment and BOSH #
+# Delete Cloud Foundry Deployment and Release, BOSH Deployment#
 
 This document explains how to delete a  Cloud Foundry Deployment and BOSH Deployment.
 

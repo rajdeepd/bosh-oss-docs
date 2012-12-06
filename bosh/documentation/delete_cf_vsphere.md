@@ -22,6 +22,11 @@ First, we will delete the Cloud Foundry deployment as follows:
 3. Run the following command to delete the Cloud Foundry deployment:
   
 + `bosh delete deployment cloudfoundry`
+<<<<<<< HEAD
+=======
+
+   Output of the above command is similar to listing below:
+>>>>>>> 533e79bec877264336197fb6cac680526acef4b0
 
    Output of the above command is partially listed below:
 
@@ -37,6 +42,7 @@ First, we will delete the Cloud Foundry deployment as follows:
 
            Deleting instances
 
+<<<<<<< HEAD
 4.Once cloudfoundry is deleted, nest step is to delete the appcloud release.You can get the appcloud release name as follows:
 
 + `bosh realeases`
@@ -118,3 +124,8 @@ First, we will delete the Cloud Foundry deployment as follows:
          Deleting instances
 
  
+=======
+
+           
+           
+>>>>>>> 533e79bec877264336197fb6cac680526acef4b0

@@ -73,7 +73,7 @@ This document explains how to delete a  Cloud Foundry Deployment and BOSH Deploy
 
 6. This completes the deletion of Cloud Foundry deployment release from BOSH.
 
-## Delete BOSH Deployment##   
+## Delete BOSH Deployment  
 
 1. First delete the BOSH stemcell as follows
 

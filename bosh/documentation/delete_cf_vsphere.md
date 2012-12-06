@@ -8,7 +8,7 @@ This document explains how to delete a  Cloud Foundry Deployment and BOSH Deploy
 
 + `cd /home/user/cloudfoundry/deployments`
 
-1. Execute command: `bosh deployments`
+2. Execute command: `bosh deployments`
 
    Output of the above command is similar to listing below:
    
@@ -21,7 +21,7 @@ This document explains how to delete a  Cloud Foundry Deployment and BOSH Deploy
             | cloudfoundry | appcloud/119 | bosh-stemcell/0.6.4 |
             +--------------+--------------+---------------------+
 
-1. Run the following command to delete the Cloud Foundry deployment:
+3. Run the following command to delete the Cloud Foundry deployment:
   
 + `bosh delete deployment cloudfoundry`
 
@@ -40,7 +40,7 @@ This document explains how to delete a  Cloud Foundry Deployment and BOSH Deploy
            Deleting instances
 
 
-1. Once Cloud Foundry is deleted, nest step is to delete the Cloud Foundry  release.You can get the release name as follows:
+4. Once Cloud Foundry is deleted, nest step is to delete the Cloud Foundry  release.You can get the release name as follows:
 
 + `bosh releases`
 
@@ -57,7 +57,7 @@ This document explains how to delete a  Cloud Foundry Deployment and BOSH Deploy
 
             Releases total: 1
 
-1. Execute the following command to delete the Cloud Foundry release:   
+5. Execute the following command to delete the Cloud Foundry release:   
 
 + `bosh delete release appcloud`
 
@@ -71,7 +71,7 @@ This document explains how to delete a  Cloud Foundry Deployment and BOSH Deploy
 
             Deleting packages
 
-1. This completes the deletion of Cloud Foundry deployment release from BOSH.
+6. This completes the deletion of Cloud Foundry deployment release from BOSH.
 
 ## Delete BOSH Deployment  
 

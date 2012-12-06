@@ -1,4 +1,4 @@
-# Deploy Cloud Foundry Deployment and BOSH #
+# Delete Cloud Foundry Deployment and BOSH #
 
 This document helps you to delete Cloud Foundry Deployment and BOSH Deployment.
 

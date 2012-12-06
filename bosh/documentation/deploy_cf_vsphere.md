@@ -149,7 +149,73 @@ You watched your vCenter hard at work and followed the deployment logs, and now 
 
    Output of this command will similar to the listing below, make sure  State of all the Jobs is running.
 
-    $ bosh vms
+
+	$ bosh vms
+	Deployment `cloudfoundry'
+	
+	Director task 30
+	
+	Task 30 done
+	
+	+-----------------------------+---------+----------------+---------------+
+	| Job/index                   | State   | Resource Pool  | IPs           |
+	+-----------------------------+---------+----------------+---------------+
+	| acm/0                       | running | infrastructure | 192.168.9.38  |
+	| acmdb/0                     | running | infrastructure | 192.168.9.37  |
+	| backup_manager/0            | running | infrastructure | 192.168.9.120 |
+	| ccdb_postgres/0             | running | infrastructure | 192.168.9.32  |
+	| cloud_controller/0          | running | infrastructure | 192.168.9.213 |
+	| cloud_controller/1          | running | infrastructure | 192.168.9.214 |
+	| collector/0                 | running | infrastructure | 192.168.9.210 |
+	| dashboard/0                 | running | infrastructure | 192.168.9.211 |
+	| dea/0                       | running | deas           | 192.168.9.186 |
+	| dea/1                       | running | deas           | 192.168.9.187 |
+	| dea/2                       | running | deas           | 192.168.9.188 |
+	| dea/3                       | running | deas           | 192.168.9.189 |
+	| debian_nfs_server/0         | running | infrastructure | 192.168.9.30  |
+	| hbase_master/0              | running | infrastructure | 192.168.9.44  |
+	| hbase_slave/0               | running | infrastructure | 192.168.9.41  |
+	| hbase_slave/1               | running | infrastructure | 192.168.9.42  |
+	| hbase_slave/2               | running | infrastructure | 192.168.9.43  |
+	| health_manager/0            | running | infrastructure | 192.168.9.163 |
+	| login/0                     | running | infrastructure | 192.168.9.162 |
+	| mongodb_gateway/0           | running | infrastructure | 192.168.9.222 |
+	| mongodb_node/0              | running | infrastructure | 192.168.9.60  |
+	| mongodb_node/1              | running | infrastructure | 192.168.9.61  |
+	| mysql_gateway/0             | running | infrastructure | 192.168.9.221 |
+	| mysql_node/0                | running | infrastructure | 192.168.9.51  |
+	| mysql_node/1                | running | infrastructure | 192.168.9.52  |
+	| nats/0                      | running | infrastructure | 192.168.9.31  |
+	| opentsdb/0                  | running | infrastructure | 192.168.9.34  |
+	| postgresql_gateway/0        | running | infrastructure | 192.168.9.192 |
+	| postgresql_node/0           | running | infrastructure | 192.168.9.90  |
+	| postgresql_node/1           | running | infrastructure | 192.168.9.91  |
+	| rabbit_gateway/0            | running | infrastructure | 192.168.9.191 |
+	| rabbit_node/0               | running | infrastructure | 192.168.9.80  |
+	| rabbit_node/1               | running | infrastructure | 192.168.9.81  |
+	| redis_gateway/0             | running | infrastructure | 192.168.9.190 |
+	| redis_node/0                | running | infrastructure | 192.168.9.70  |
+	| redis_node/1                | running | infrastructure | 192.168.9.71  |
+	| router/0                    | running | infrastructure | 192.168.9.101 |
+	| router/1                    | running | infrastructure | 192.168.9.102 |
+	| serialization_data_server/0 | running | infrastructure | 192.168.9.123 |
+	| service_utilities/0         | running | infrastructure | 192.168.9.121 |
+	| services_nfs/0              | running | infrastructure | 192.168.9.50  |
+	| services_redis/0            | running | infrastructure | 192.168.9.72  |
+	| stager/0                    | running | infrastructure | 192.168.9.215 |
+	| stager/1                    | running | infrastructure | 192.168.9.216 |
+	| syslog_aggregator/0         | running | infrastructure | 192.168.9.33  |
+	| uaa/0                       | running | infrastructure | 192.168.9.212 |
+	| uaadb/0                     | running | infrastructure | 192.168.9.35  |
+	| vblob_gateway/0             | running | infrastructure | 192.168.9.193 |
+	| vblob_node/0                | running | infrastructure | 192.168.9.110 |
+	| vcap_redis/0                | running | infrastructure | 192.168.9.36  |
+	+-----------------------------+---------+----------------+---------------+
+	
+	VMs total: 50
+
+
+   $ bosh vms
     Deployment cloudfoundry-106
     
     Director task 176

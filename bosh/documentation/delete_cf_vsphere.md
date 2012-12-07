@@ -5,13 +5,13 @@ This document explains how to delete a  Cloud Foundry Deployment and BOSH Deploy
 ##Deleting the Cloud Foundry Deployment and Release##
 
 + Go to the cloudfoundry deployment directory.
-  
+
   `cd /home/user/cloudfoundry/deployments`
 
 + Execute command: `bosh deployments`
 
    Output of the above command is similar to listing below:
-   
+
 
           $ bosh deployments
 
@@ -22,7 +22,7 @@ This document explains how to delete a  Cloud Foundry Deployment and BOSH Deploy
             +--------------+--------------+---------------------+
 
 + Run the following command to delete the Cloud Foundry deployment:
-  
+
   `bosh delete deployment cloudfoundry`
 
   Output of the above command is partially listed below:
@@ -57,7 +57,7 @@ This document explains how to delete a  Cloud Foundry Deployment and BOSH Deploy
 
             Releases total: 1
 
-+ Execute the following command to delete the Cloud Foundry release:   
++ Execute the following command to delete the Cloud Foundry release:
 
  `bosh delete release appcloud`
 
@@ -73,7 +73,7 @@ This document explains how to delete a  Cloud Foundry Deployment and BOSH Deploy
 
 This completes the deletion of Cloud Foundry deployment release from BOSH.
 
-## Delete BOSH Deployment  
+## Delete BOSH Deployment
 
 + First delete the BOSH stemcell as follows
 
@@ -89,16 +89,16 @@ This completes the deletion of Cloud Foundry deployment release from BOSH.
 
             Director task 44
 
-            Deleting stemcell from cloud 
+            Deleting stemcell from cloud
 
 + Once stemcell is deleted,the deployment target should be set to Micro BOSH.
 
 + Now BOSH Deployment can be deleted.
-    
+
 + Execute following command to get the name of BOSH deployment:
 
  `bosh deployments`
-   
+
    Output of the above command is similar to listing below:
 
         $ bosh deployments
@@ -117,7 +117,7 @@ This completes the deletion of Cloud Foundry deployment release from BOSH.
 
 Output of the above command is partially listed below:
 
-        $bosh delete deployment bosh 
+        $bosh delete deployment bosh
 
          You are going to delete deployment `bosh'.
 

@@ -20,7 +20,7 @@ Output of the above command is similar to listing below:
 
             Deployment
              Manifest  /home/rajdeep/cloudfoundry_2/deployments/cf/cloudfoundry.yml
-       
+
 
 If it is not set to BOSH director then follow the steps on this link to set it to BOSH DIRECTOR:
 [Deploy Cloud Application Platform - Cloud Foundry](https://github.com/cloudfoundry/oss-docs/blob/master/bosh/documentation/deploy_cf_vsphere.md)
@@ -36,23 +36,23 @@ Now upload the new release as follows:
 
 + `bosh upload release releases/appcloud-119.yml`
 
-You'll see a flurry of output as BOSH configures and uploads release components. 
+You'll see a flurry of output as BOSH configures and uploads release components.
 
 For the purpose of this tutorial, we'll use a sample [deployment manifest](https://github.com/cloudfoundry/oss-docs/blob/master/bosh/tutorial/examples/dev124.yml)
 
 Keep in mind that a manifest of this size requires significant virtual hardware resources to run.
 
-Use the BOSH CLI to set your current deployment. If you placed your deployment manifest yml in `~/cloudfoundry/deployments/cf`, run the following command: 
+Use the BOSH CLI to set your current deployment. If you placed your deployment manifest yml in `~/cloudfoundry/deployments/cf`, run the following command:
 
-+ `bosh deployment ~/cloudfoundry/deployments/cf/cloudfoundry.yml` 
++ `bosh deployment ~/cloudfoundry/deployments/cf/cloudfoundry.yml`
 
 ## Deploy ##
 
-Let's summarize what we accomplished in this section. 
+Let's summarize what we accomplished in this section.
 
 + We uploaded the new release to the Director
 + Configured a deployment manifest
-+ Set the deployment manifest as the current deployment using the BOSH CLI. 
++ Set the deployment manifest as the current deployment using the BOSH CLI.
 
 Now execute the deploy command from BOSH CLI:
 
@@ -61,7 +61,7 @@ Now execute the deploy command from BOSH CLI:
 
 Output of the above command is pretty long and is partially listed below;
 
-        $ bosh deploy 
+        $ bosh deploy
           Getting deployment properties from director...
           Compiling deployment manifest...
           Detecting changes in deployment...
@@ -79,7 +79,7 @@ If you'd like to learn more about what happens during the deployment process, re
 
 # Verification #
 
-Now we need to verify, that all our VMs and application working fine after the update. 
+Now we need to verify, that all our VMs and application working fine after the update.
 
 Run the following command to verify that all VMs are running:
 
@@ -89,11 +89,11 @@ Output of the above command is similar to listing below:
 
 	$ bosh vms
 	Deployment `cloudfoundry'
-	
+
 	Director task 30
-	
+
 	Task 30 done
-	
+
 	+-----------------------------+---------+----------------+---------------+
 	| Job/index                   | State   | Resource Pool  | IPs           |
 	+-----------------------------+---------+----------------+---------------+
@@ -148,7 +148,7 @@ Output of the above command is similar to listing below:
 	| vblob_node/0                | running | infrastructure | 192.168.9.110 |
 	| vcap_redis/0                | running | infrastructure | 192.168.9.36  |
 	+-----------------------------+---------+----------------+---------------+
-	
+
 	VMs total: 50
 
 + Also launch the applications and make sure that all are running fine.

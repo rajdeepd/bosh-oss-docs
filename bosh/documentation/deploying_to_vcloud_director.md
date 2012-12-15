@@ -173,11 +173,11 @@ Now we download the latest stem cellto upload to our micro BOSH instance.
 		bosh download public stemcell bosh-stemcell-vsphere-0.6.7.tgz
 
    * Upload it to your micro BOSH instance:
-		
+
 		bosh upload stemcell bosh-stemcell-vsphere-0.6.7.tgz
 		
 ##Create a Private Network##
-  
+
    1. [Add private networks](http://pubs.vmware.com/vcd-51/index.jsp?topic=%2Fcom.vmware.vcloud.admin.doc_51%2FGUID-6E69AF88-31E0-4DD8-A79E-E8E4B6F68878.html) to separate application components from each other and from direct access by users. Here, “cf-net” is a direct network added earlier and “cf-routed” is a private network.
 	![vcloud_private_network](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/vcloud_images/vcloud_private_network.png)
 
@@ -186,18 +186,18 @@ Now we download the latest stem cellto upload to our micro BOSH instance.
 	![vcloud_private_network](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/vcloud_images/vcloud_source_nat.png)
 
 ##Create a Deployment Manifest##
-   
-   1. Get the director UUID using the following command: 
+
+   1. Get the director UUID using the following command:
 
 		bosh status
-		
+
    2. Copy the file [wordpress-vcloud.yml](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/samples/wordpress-vcloud.yml) in the bosh-sample-release directory and update it to suit your network.
 
 
 ##Deploy##
-   
+
    1. Select the deployment manifest you just created:
-   
+
 		bosh deployment ~/wordpress-vcloud.yml
 
    1. Initiate the deployment:
@@ -210,7 +210,7 @@ Now we download the latest stem cellto upload to our micro BOSH instance.
 
 Once your deployment is complete point your browser to the IP of the vm where nginx job is running `http://<nginx-vm-staticip>`.
 
-Congratulations. You just used BOSH to deploy an application to vCloud! 
+Congratulations. You just used BOSH to deploy an application to vCloud!
 
 
 ##What’s next?##

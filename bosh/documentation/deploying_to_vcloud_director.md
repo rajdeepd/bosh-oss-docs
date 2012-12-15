@@ -29,6 +29,8 @@ We assume you already have Ruby (1.9.2) and rubygems (1.8) installed. To install
 
 Download a micro BOSH stemcell with version >= 0.6.4  Use bosh-release version #11 or higher.
 
+Note :  Stemcells for vSphere work for vCloud Director
+
 	
 		% bosh public stemcells
 		+---------------------------------------+--------------------------------------------------+
@@ -61,6 +63,9 @@ To deploy Micro Bosh on vCloud you will need to prepare resources from the cloud
 
 The BOSH deployer will deploy applications based on files in expected directory locations:
 
+	mkdir ~/deployments
+	cd ~/deployments
+	mkdir vcloud
 
 ##Create Micro BOSH Config File##
 
@@ -116,7 +121,7 @@ Micro BOSH can now be deployed from your deployments directory.
 
 		cd ~/deployments
 
- + Select the deployment you created:
++ Select the deployment you created:
 
 		bosh micro deployment vcloud
 
@@ -164,8 +169,12 @@ The sample release is on Github for your cloning convenience:
 Now we download the latest stem cellto upload to our micro BOSH instance.
 
    * Download the latest BOSH stem cell for vCloud:
+   
+		bosh download public stemcell bosh-stemcell-vsphere-0.6.7.tgz
 
    * Upload it to your micro BOSH instance:
+		
+		bosh upload stemcell bosh-stemcell-vsphere-0.6.7.tgz
 .
 ##Create a Private Network##
   

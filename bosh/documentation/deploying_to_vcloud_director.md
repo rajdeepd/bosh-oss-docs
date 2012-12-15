@@ -4,7 +4,7 @@ Cloud Foundry was designed and built to support distributed applications that ca
 infrastructures such as vSphere, vCloud, OpenStack and Amazon Web Services. The key to supporting multiple clouds is Cloud Foundry BOSH, a cloud deployment and lifecycle management tool that was announced earlier this year.
 
 
-The new vCloud CPI is now available on the Cloud Foundry BOSH github repository. 
+The new vCloud CPI is now available on the Cloud Foundry BOSH github repository.
 
 ##Prerequisites##
 
@@ -31,7 +31,7 @@ Download a micro BOSH stemcell with version >= 0.6.4  Use bosh-release version #
 
 Note :  Stemcells for vSphere work for vCloud Director
 
-	
+
 		% bosh public stemcells
 		+---------------------------------------+--------------------------------------------------+
 		| Name 	                                | Tags                                             |
@@ -44,7 +44,7 @@ Note :  Stemcells for vSphere work for vCloud Director
 		+---------------------------------------+--------------------------------------------------+
 
 To download use `bosh download public stemcell <stemcell_name>` as shown below
-		
+	
 	% bosh download public stemcell micro-bosh-stemcell-0.6.4.tgz
 
 ##Deploying Micro BOSH##
@@ -72,9 +72,9 @@ The BOSH deployer will deploy applications based on files in expected directory 
 Micro BOSH configurations are set in the `micro_bosh.yml`, which you need to create.
 
 + Create `~/deployments/vcloud/micro_bosh.yml` using the template that appears below:
-   
-  
-       	
+
+
+
 		---
         name:vcloud
 
@@ -126,12 +126,12 @@ Micro BOSH can now be deployed from your deployments directory.
 		bosh micro deployment vcloud
 
 Note: don’t be concerned by seemingly inaccurate message WARNING! Your target has been changed to `http://vcloud:25555!
-  
+
 + Start the deployment using the micro stemcell downloaded earlier:
 
 		bosh micro deploy ~/stemcells/micro-bosh-stemcell-vsphere-0.6.4.tgz
 
-+ Within 20 minutes your instance of micro BOSH will be deployed. After the ‘Done’ message appears, you have a running micro BOSH instance. 
++ Within 20 minutes your instance of micro BOSH will be deployed. After the ‘Done’ message appears, you have a running micro BOSH instance.
 
 + If your deployment failed for some reason use the following to clean up:
 
@@ -154,13 +154,13 @@ We have created a sample three-tier application (Nginx, Apache + PHP with WordPr
 
 The sample release is on Github for your cloning convenience:
 
-+ First make a git clone of the sample application release repository: 
++ First make a git clone of the sample application release repository:
 
 		cd ~
 		git clone git://github.com/cloudfoundry/bosh-sample-release.git
 		cd bosh-sample-release
 
-+ Upload the release to micro BOSH: 
++ Upload the release to micro BOSH:
 
 		bosh upload releases/wordpress-1.yml
 
@@ -169,7 +169,7 @@ The sample release is on Github for your cloning convenience:
 Now we download the latest stem cellto upload to our micro BOSH instance.
 
    * Download the latest BOSH stem cell for vCloud:
-   
+
 		bosh download public stemcell bosh-stemcell-vsphere-0.6.7.tgz
 
    * Upload it to your micro BOSH instance:

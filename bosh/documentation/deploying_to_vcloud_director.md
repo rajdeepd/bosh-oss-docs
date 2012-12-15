@@ -11,14 +11,14 @@ The new vCloud CPI is now available on the Cloud Foundry BOSH github repository.
 
 To get started with BOSH on vCloud you need:
 
-1. An account in a vCloud organization with organization administrator credentials
+1. An account in a [vCloud organization](http://www.google.com/url?q=http%3A%2F%2Fpubs.vmware.com%2Fvcd-51%2Ftopic%2Fcom.vmware.vcloud.users.doc_51%2FGUID-B2D21D95-B37F-4339-9887-F7788D397FD8.html&sa=D&sntz=1&usg=AFQjCNFXvafOCSo6mu2RqwrqInMggIb0qA) with [organization administrator](http://www.google.com/url?q=http%3A%2F%2Fpubs.vmware.com%2Fvcd-51%2Ftopic%2Fcom.vmware.vcloud.users.doc_51%2FGUID-5B60A9C0-612A-4A3A-9ECE-694C40272505.html&sa=D&sntz=1&usg=AFQjCNHJSQwucHuiTCSsoGSivJX9DnguHw) credentials
 2. A vCloud virtual datacenter with an Internet routable network and a block of assigned IP addresses
 3. A Mac or *NIX computer
 
 
 ##Installing the BOSH Deployer##
 
-We assume you already have Ruby (1.9.2) and rubygems (1.8) installed. To install the BOSH deployer gem (which includes the BOSH cli):
+We assume you already have Ruby (1.9.2) and rubygems (1.8) installed. To install the BOSH deployer gem (which includes the BOSH CLI):
 
 	gem install bosh_deployer
 
@@ -52,6 +52,8 @@ To deploy Micro Bosh on vCloud you will need to prepare resources from the cloud
 ##Preparing vCloud virtual data center resources##
 
 + Add a catalog where stemcells and media (ISOs) for BOSH will be stored.
+
+![vcloud_private_network](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/vcloud_images/vcloud_catalog.png)
 
 + Add a network to the virtual datacenter.  Configure the network to be directly connected to the virtual datacenter external network.  Steps to [Create an External Direct Organization vDC Network](http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.admin.doc_51/GUID-E8A80C28-6C16-4E83-828C-0510DA3B00F8.html).
 
@@ -168,7 +170,7 @@ Now we download the latest stem cellto upload to our micro BOSH instance.
 ##Create a Private Network##
   
    1. [Add private networks](http://pubs.vmware.com/vcd-51/index.jsp?topic=%2Fcom.vmware.vcloud.admin.doc_51%2FGUID-6E69AF88-31E0-4DD8-A79E-E8E4B6F68878.html) to separate application components from each other and from direct access by users. Here, “cf-net” is a direct network added earlier and “cf-routed” is a private network.
-	![vcloud_private_network](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/vcloud_images/vcloud_catalog.png)
+	![vcloud_private_network](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/vcloud_images/vcloud_private_network.png)
 
    1. To allow machines on the private network to talk outside the network, e.g. the micro BOSH, [configure a source NAT rule on the network](http://www.google.com/url?q=http%3A%2F%2Fpubs.vmware.com%2Fvcd-51%2Findex.jsp%3Ftopic%3D%252Fcom.vmware.vcloud.admin.doc_51%252FGUID-464E27A8-3238-4553-ABCF-77808D3A510D.html&sa=D&sntz=1&usg=AFQjCNGXS8KPBo_PsbMblK3bh835u_FFmg).
 
@@ -186,13 +188,19 @@ Now we download the latest stem cellto upload to our micro BOSH instance.
 ##Deploy##
    
    1. Select the deployment manifest you just created:
+   
+		bosh deployment ~/wordpress-vcloud.yml
 
    1. Initiate the deployment:
 
+		bosh deploy
+
    1. Sit back and enjoy the show!
 
-Connect to the deployed sample application
-Point your browser to the IP of the vm where nginx job is running `http://<nginx-vm-staticip>`.
+##Connect to the deployed sample application##
+
+Once your deployment is complete point your browser to the IP of the vm where nginx job is running `http://<nginx-vm-staticip>`.
+
 Congratulations. You just used BOSH to deploy an application to vCloud! 
 
 

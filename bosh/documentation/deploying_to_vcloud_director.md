@@ -32,7 +32,7 @@ Download a micro BOSH stemcell with version >= 0.6.4  Use bosh-release version #
 	
 		% bosh public stemcells
 		+---------------------------------------+--------------------------------------------------+
-		| Name 	| Tags 	|
+		| Name 	                                | Tags                                             |
 		+---------------------------------------+--------------------------------------------------+
 		| bosh-stemcell-aws-0.6.4.tgz           | aws, stable                                      |
 		| bosh-stemcell-vsphere-0.6.4.tgz       | vsphere, stable                                  |
@@ -41,7 +41,7 @@ Download a micro BOSH stemcell with version >= 0.6.4  Use bosh-release version #
 		| micro-bosh-stemcell-vsphere-0.6.4.tgz	| vsphere, micro, stable                           |
 		+---------------------------------------+--------------------------------------------------+
 
-To download use 'bosh download public stemcell <stemcell_name>'.
+To download use `bosh download public stemcell <stemcell_name>` as shown below
 		
 	% bosh download public stemcell micro-bosh-stemcell-0.6.4.tgz
 
@@ -53,7 +53,7 @@ To deploy Micro Bosh on vCloud you will need to prepare resources from the cloud
 
 + Add a catalog where stemcells and media (ISOs) for BOSH will be stored.
 
-+ Add a network to the virtual datacenter.  Configure the network to be directly connected to the virtual datacenter external network.  Steps to ![Create an External Direct Organization vDC Network](http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.admin.doc_51/GUID-E8A80C28-6C16-4E83-828C-0510DA3B00F8.html).
++ Add a network to the virtual datacenter.  Configure the network to be directly connected to the virtual datacenter external network.  Steps to [Create an External Direct Organization vDC Network](http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.admin.doc_51/GUID-E8A80C28-6C16-4E83-828C-0510DA3B00F8.html).
 
 ##Create the Directory Structure##
 
@@ -112,32 +112,32 @@ Micro BOSH can now be deployed from your deployments directory.
 
 + Make sure you are in your deployments directory:
 
-	`cd ~/deployments`
+		cd ~/deployments
 
  + Select the deployment you created:
 
-	`bosh micro deployment vcloud`
+		bosh micro deployment vcloud
 
 Note: don’t be concerned by seemingly inaccurate message WARNING! Your target has been changed to `http://vcloud:25555!
   
 + Start the deployment using the micro stemcell downloaded earlier:
 
-	`bosh micro deploy ~/stemcells/micro-bosh-stemcell-vsphere-0.6.4.tgz`
+		bosh micro deploy ~/stemcells/micro-bosh-stemcell-vsphere-0.6.4.tgz
 
 + Within 20 minutes your instance of micro BOSH will be deployed. After the ‘Done’ message appears, you have a running micro BOSH instance. 
 
 + If your deployment failed for some reason use the following to clean up:
 
-	`bosh micro delete`
+		bosh micro delete
 
 + Log in to the Micro BOSH:
 
-	`bosh login`
+		bosh login
 
 + Type the default account name is admin and the password is admin
 + Change the account name and password using the command below. Don’t say we didn’t tell you if someone deletes your deployment!
 
-	`bosh create user <username> <password>`
+		bosh create user <username> <password>
 
 ##Deploying an Application Using BOSH##
 
@@ -167,10 +167,12 @@ Now we download the latest stem cellto upload to our micro BOSH instance.
 .
 ##Create a Private Network##
   
-   1. ![Add private networks](http://pubs.vmware.com/vcd-51/index.jsp?topic=%2Fcom.vmware.vcloud.admin.doc_51%2FGUID-6E69AF88-31E0-4DD8-A79E-E8E4B6F68878.html) to separate application components from each other and from direct access by users. Here, “cf-net” is a direct network added earlier and “cf-routed” is a private network.
+   1. [Add private networks](http://pubs.vmware.com/vcd-51/index.jsp?topic=%2Fcom.vmware.vcloud.admin.doc_51%2FGUID-6E69AF88-31E0-4DD8-A79E-E8E4B6F68878.html) to separate application components from each other and from direct access by users. Here, “cf-net” is a direct network added earlier and “cf-routed” is a private network.
 	![vcloud_private_network](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/vcloud_images/vcloud_catalog.png)
 
-   1. To allow machines on the private network to talk outside the network, e.g. the micro BOSH, configure a source NAT rule on the network.
+   1. To allow machines on the private network to talk outside the network, e.g. the micro BOSH, [configure a source NAT rule on the network](http://www.google.com/url?q=http%3A%2F%2Fpubs.vmware.com%2Fvcd-51%2Findex.jsp%3Ftopic%3D%252Fcom.vmware.vcloud.admin.doc_51%252FGUID-464E27A8-3238-4553-ABCF-77808D3A510D.html&sa=D&sntz=1&usg=AFQjCNGXS8KPBo_PsbMblK3bh835u_FFmg).
+
+	![vcloud_private_network](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/vcloud_images/vcloud_source_nat.png)
 
 ##Create a Deployment Manifest##
    
@@ -178,7 +180,7 @@ Now we download the latest stem cellto upload to our micro BOSH instance.
 
 		bosh status
 		
-   2. Copy the file ![wordpress-vcloud.yml]() in the bosh-sample-release directory and update it to suit your network.
+   2. Copy the file [wordpress-vcloud.yml](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/samples/wordpress-vcloud.yml) in the bosh-sample-release directory and update it to suit your network.
 
 
 ##Deploy##
@@ -190,7 +192,7 @@ Now we download the latest stem cellto upload to our micro BOSH instance.
    1. Sit back and enjoy the show!
 
 Connect to the deployed sample application
-Point your browser to http://10.147.130.112.
+Point your browser to the IP of the vm where nginx job is running `http://<nginx-vm-staticip>`.
 Congratulations. You just used BOSH to deploy an application to vCloud! 
 
 

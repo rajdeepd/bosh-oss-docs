@@ -51,7 +51,7 @@ To deploy Micro Bosh on vCloud you will need to prepare resources from the cloud
 
 + Add a catalog where stemcells and media (ISOs) for BOSH will be stored.
 
-![vcloud_private_network](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/vcloud_images/vcloud_catalog.png)
+![vcloud_catalog](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/vcloud_images/vcloud_catalog.png)
 
 + Add a network to the virtual datacenter.  Configure the network to be directly connected to the virtual datacenter external network.  Steps to [Create an External Direct Organization vDC Network](http://pubs.vmware.com/vcd-51/topic/com.vmware.vcloud.admin.doc_51/GUID-E8A80C28-6C16-4E83-828C-0510DA3B00F8.html).
 
@@ -179,7 +179,7 @@ Now we download the latest stem cellto upload to our micro BOSH instance.
 
    1. To allow machines on the private network to talk outside the network, e.g. the micro BOSH, [configure a source NAT rule on the network](http://www.google.com/url?q=http%3A%2F%2Fpubs.vmware.com%2Fvcd-51%2Findex.jsp%3Ftopic%3D%252Fcom.vmware.vcloud.admin.doc_51%252FGUID-464E27A8-3238-4553-ABCF-77808D3A510D.html&sa=D&sntz=1&usg=AFQjCNGXS8KPBo_PsbMblK3bh835u_FFmg).
 
-	![vcloud_private_network](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/vcloud_images/vcloud_source_nat.png)
+	![vcloud_source_nat](https://raw.github.com/rajdeepd/bosh-oss-docs/master/bosh/documentation/vcloud_images/vcloud_source_nat.png)
 
 ##Create a Deployment Manifest##
 

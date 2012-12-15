@@ -175,7 +175,7 @@ Now we download the latest stem cellto upload to our micro BOSH instance.
    * Upload it to your micro BOSH instance:
 		
 		bosh upload stemcell bosh-stemcell-vsphere-0.6.7.tgz
-.
+		
 ##Create a Private Network##
   
    1. [Add private networks](http://pubs.vmware.com/vcd-51/index.jsp?topic=%2Fcom.vmware.vcloud.admin.doc_51%2FGUID-6E69AF88-31E0-4DD8-A79E-E8E4B6F68878.html) to separate application components from each other and from direct access by users. Here, “cf-net” is a direct network added earlier and “cf-routed” is a private network.

@@ -1,10 +1,6 @@
 #Deploying to vCloud Using Cloud Foundry BOSH#
 
-Cloud Foundry was designed and built to support distributed applications that can be moved between multiple clouds, including those running on different IaaS 
-infrastructures such as vSphere, vCloud, OpenStack and Amazon Web Services. The key to supporting multiple clouds is Cloud Foundry BOSH, a cloud deployment and lifecycle management tool that was announced earlier this year.
-
-
-The new vCloud CPI is now available on the Cloud Foundry BOSH github repository.
+In this tutorial we learn how to deploy a simple Wordpress application on vCloud Director using BOSH.
 
 ##Prerequisites##
 
@@ -211,8 +207,3 @@ Now we download the latest stem cellto upload to our micro BOSH instance.
 Once your deployment is complete point your browser to the IP of the vm where nginx job is running `http://<nginx-vm-staticip>`.
 
 Congratulations. You just used BOSH to deploy an application to vCloud!
-
-
-##What’s next?##
-
-The vCloud Director BOSH CPI project joins other community contributions around Cloud Foundry BOSH, and is part of Cloud Foundry community.  The vcloud CPI, like the BOSH itself,  is an open source project under the Apache 2 license.  In addition to support from a core engineering team from VMware, developer community contributions are welcome, and patches and contributions (code) can be submitted at `https://github.com/cloudfoundry/bosh/tree/master/vcloud_cpi`.`

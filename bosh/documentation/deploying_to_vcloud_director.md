@@ -23,7 +23,7 @@ We assume you already have Ruby (1.9.2) and rubygems (1.8) installed. To install
 	gem install bosh_deployer
 
 
-##Micro BOSH Stemcells## 
+## Micro BOSH Stemcells##
 
 + We have published micro BOSH stemcells for download. When you are ready to use the BOSH deployer download a micro BOSH stemcell.
 
@@ -66,7 +66,7 @@ Micro BOSH configurations are set in the `micro_bosh.yml`, which you need to cre
 
 + Create `~/deployments/vcloud/micro_bosh.yml` using the template that appears below:
    
-  .
+  
        	
 		---
         name:vcloud

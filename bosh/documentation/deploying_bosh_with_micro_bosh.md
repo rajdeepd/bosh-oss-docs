@@ -6,18 +6,24 @@
 
 		$ bosh micro status
 		...
-		Target         micro (http://11.23.194.100:25555) Ver: 0.3.12 (00000000)
+		Target         http://192.168.9.20:25555
 
-		$ bosh target http://11.23.194.100:25555
-		Target set to 'micro (http://11.23.194.100:25555) Ver: 0.3.12 (00000000)'
+		$ bosh target 192.168.9.20
+		Target set to `micro-bosh'
 
 		$ bosh status
-		Updating director data... done
+		Director
+                  Name      micro-bosh
+                  URL       http://192.168.9.20:25555
+                  Version   0.5.2 (release:ffed4d4a bosh:21e0b0bc)
+                  User      admin
+                  UID      e9b5d31d-1266-49d6-b25f-21df616e4017
+                  CPI       vsphere
+             
+                Deployment
+                  not set
 
-		Target         micro (http://11.23.194.100:25555) Ver: 0.3.12 (00000000)
-		UUID           b599c640-7351-4717-b23c-532bb35593f0
-		User           admin
-		Deployment     not set
+
 
 ### Download a BOSH stemcell
 
@@ -26,22 +32,24 @@
 		% mkdir -p ~/stemcells
 		% cd stemcells
 		% bosh public stemcells
-		+-------------------------------+----------------------------------------------------+
-		| Name                          | Url                                                |
-		+-------------------------------+----------------------------------------------------+
-		| bosh-stemcell-0.4.7.tgz       | https://blob.cfblob.com/rest/objects/4e4e7...h120= |
-		| micro-bosh-stemcell-0.1.0.tgz | https://blob.cfblob.com/rest/objects/4e4e7...5Mms= |
-		| bosh-stemcell-0.3.0.tgz       | https://blob.cfblob.com/rest/objects/4e4e7...mw1w= |
-		| bosh-stemcell-0.4.4.tgz       | https://blob.cfblob.com/rest/objects/4e4e7...r144= |
-		+-------------------------------+----------------------------------------------------+
+		+---------------------------------------+--------------------------------------------------+
+                | Name                                  | Tags                                             |
+                +---------------------------------------+--------------------------------------------------+
+                | bosh-stemcell-aws-0.6.4.tgz           | aws, stable                                      |
+                | bosh-stemcell-vsphere-0.6.4.tgz       | vsphere, stable                                  |
+                | bosh-stemcell-vsphere-0.6.7.tgz       | vsphere, stable                                  | 
+                | micro-bosh-stemcell-aws-0.6.4.tgz     | aws, micro, stable                               |
+                | micro-bosh-stemcell-vsphere-0.6.4.tgz | vsphere, micro, stable                           |
+                +---------------------------------------+--------------------------------------------------+
+To download use 'bosh download public stemcell <stemcell_name>'.
 		To download use 'bosh download public stemcell <stemcell_name>'.
 
 
 1. Download a public stemcell. *NOTE, in this case you do not use the micro bosh stemcell.*
 
-		bosh download public stemcell bosh-stemcell-0.1.0.tgz
+		bosh download public stemcell bosh-stemcell-vsphere-0.6.7.tgz
 
-1. Upload the downloaded stemcell to micro BOSH.
+1. Upload the downloaded stemcell to micro BOSH.Before uploading you have to login to Micro BOSH.Default login/password is admin/admin.
 
 		bosh upload stemcell bosh-stemcell-0.1.0.tgz
 
@@ -54,8 +62,8 @@
 
 1. Upload a public release from bosh-release
 
-		cd /home/bosh_user/bosh-release/releases/
-		bosh upload release bosh-1.yml
+		cd /home/bosh_user/bosh-release/
+		bosh upload release releases/bosh-10.yml
 
 
 ### Setup a BOSH deployment manifest and deploy ###
@@ -67,6 +75,6 @@
 
 1. Deploy BOSH
 
-		bosh deploy.
+		bosh deploy
 
 1. Target the newly deployed bosh director. In the sample `bosh.yml`, the bosh director has the ip address 192.0.2.36. So if you target this director with `bosh target http://192.0.2.36:25555` where 25555 is the default BOSH director port.  Your newly installed BOSH instance is now ready for use.

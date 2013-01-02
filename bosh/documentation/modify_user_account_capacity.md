@@ -68,7 +68,7 @@ This document explains how to increase/decrease memory,apps and services limits 
             +-----------------------------+---------+----------------+---------------+
 
 
-+ In the out put of above command , you can see two cloud controller instances. Changes need to be made in both.So login to cloud 
++ In the output of above command , you can see two cloud controller instances. Changes need to be made in both.So login to cloud 
   controller
 
   `ssh vcap@192.168.9.223`
@@ -81,7 +81,7 @@ This document explains how to increase/decrease memory,apps and services limits 
    
 + Open cloud_controller.yml file in editing mode. You need to use sudo rights.
 
- `sudo vi cloud_contrller.yml`
+ `sudo vi cloud_controller.yml`
 
 
 + Change the normal user account capcity as per your requirement:
@@ -95,7 +95,7 @@ This document explains how to increase/decrease memory,apps and services limits 
              apps:     20
 
 
-+ For example, lets change apps to 30
++ For example, lets change apps to 30.
 
            # Normal users limited to 512M, 4 Services, and 4 URIs per App
            default_account_capacity:
@@ -107,9 +107,9 @@ This document explains how to increase/decrease memory,apps and services limits 
 
 + Restart the cloud_controller instance.
 
-+ Make similar changes in other cloud controller instance and restart that job.
++ Make similar changes in other cloud controller instance and restart that instance.
 
-+ Login with any user except on vmc and execute `vmc info`.
++ Login with any user except user which have administrator rights on vmc and execute `vmc info`.
 
          $vmc login
           Attempting login to [http://api.cf.com]

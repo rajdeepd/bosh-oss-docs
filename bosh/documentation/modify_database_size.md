@@ -3,10 +3,10 @@
 This document explains how to modify database size.In this example, we will modify mysql database size.
 
 
-+ To check the current size of mysql database, login to mysql node. ou can get the IP of the cloud controller by executing following 
++ To check the current size of mysql database, login to mysql node. You can get the IP of the cloud controller by executing following 
   command:
 
-  `bosh vms`
+  `$ bosh vms`
 
    Output of the above command is similar to listing below:
 
@@ -69,13 +69,14 @@ This document explains how to modify database size.In this example, we will modi
             +-----------------------------+---------+----------------+---------------+
 
 + Login to any of the mysql node
+
   `ssh vcap@192.168.9.51`
 
-+ Go to /var/vcap/jobs/cloud_controller/config
++ Go to /var/vcap/jobs/mysql_node/config
 
   `cd /var/vcap/jobs/mysql_node/config`
 
-+ Read the cloudfoundry.yml for current DB size
++ Read the mysql_node.yml for current DB size
   
   `cat mysql_node.yml`
 

@@ -101,7 +101,7 @@ Use the BOSH CLI to set your current deployment. If you placed your deployment m
 
 + `bosh deployment ~/deployments/dev124/dev124.yml`
 
-   `Deployment set to '/home/rajdeep/deployments/cloudfoundry_new.yml'`
+   `Deployment set to ' ~/deployments/dev124/dev124.yml'`
 
 
 ## Deploy ##

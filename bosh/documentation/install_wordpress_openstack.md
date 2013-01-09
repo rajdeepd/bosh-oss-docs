@@ -1,40 +1,40 @@
 #Installing Wordpress
 
-##<b>Prerequisites:-</b>
+###Prerequisites:-
 
-<ol>
-   <li>Install the OpenStack. Please 
+
+  1. Install the OpenStack. Please 
 <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/install_openstack.md">Click here</a> to know how to install.</li>
-   <li>Install the Micro BOSH. Please
+  2. Install the Micro BOSH. Please
 <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/install_microbosh_openstack.md">Click here</a> to know how to install.</li>
-</ol>
-
-##Step 1 : Download the latest BOSH stem cell for OpenStack
-
-    root@inception-vm:/home/ubuntu/stemcells/# bosh download public stemcell bosh-stemcell-openstack-0.6.7.tgz
 
 
-##Step 2 : Upload it to your micro BOSH instance
+###Step 1 : Download the latest BOSH stem cell for OpenStack
 
-    root@inception-vm:/home/ubuntu/stemcells/# bosh upload stemcell bosh-stemcell-openstack-0.6.7.tgz
-
-##Step 3 : Git clone the BOSH sample release
-
-    root@inception-vm:/home/ubuntu/releases/# git clone git://github.com/cloudfoundry/bosh-sample-release.git
-
-    root@inception-vm:/home/ubuntu/releases/# cd bosh-sample-release
+    bosh download public stemcell bosh-stemcell-openstack-0.6.7.tgz
 
 
-##Step 4 : Upload the release to micro BOSH
+###Step 2 : Upload it to your micro BOSH instance
 
-    root@inception-vm:/home/ubuntu/releases/bosh-sample-release#  bosh upload release releases/wordpress-1.yml
+    bosh upload stemcell bosh-stemcell-openstack-0.6.7.tgz
+
+###Step 3 : Git clone the BOSH sample release
+
+    git clone git://github.com/cloudfoundry/bosh-sample-release.git
+
+    cd bosh-sample-release
 
 
-##Step 5 : Prepare the deployment manifest file for OpenStack wordpress
+###Step 4 : Upload the release to micro BOSH
 
-<b>Create Manifest File</b>
+    bosh upload release releases/wordpress-1.yml
 
-    root@inception-vm:/home/ubuntu/deployments/# vim wordpress-openstack.yml
+
+###Step 5 : Prepare the deployment manifest file for OpenStack wordpress
+
+Create Manifest File
+
+    vim wordpress-openstack.yml
 
 Copy the below content and paste it in wordpress-openstack.yml
 
@@ -163,25 +163,25 @@ Copy the below content and paste it in wordpress-openstack.yml
         no_root_squash: true
 
 
-<b>Note:-</b>
-<ol>
-<li>Replace Only the red colored values with actual ones.</li>
-<li>Generate hashed password for f00bar</li>
-<li>Replace the password with hashed password.</li>
-</ol>
+Note:-
+
+ 1. Replace Only the red colored values with actual ones.
+ 2. Generate hashed password for f00bar
+ 3. Replace the password with hashed password.
+
  
-##Step 6 : Deploy wordpress
+###Step 6 : Deploy wordpress
 
-    root@inception-vm:/home/ubuntu/deployments/# bosh deployment wordpress-openstack.yml
+    bosh deployment wordpress-openstack.yml
 
-<b>Output will be:</b>
+Output will be:
 
-Deployment set to <b>`/home/ubuntu/deployments/wordpress-openstack.yml'</b>
+Deployment set to `/home/ubuntu/deployments/wordpress-openstack.yml'
 
-    root@inception-vm:/home/ubuntu/deployments/# bosh deploy
+    bosh deploy
 
 
-<b>Output will be:</b>
+Output will be:
 
     Getting deployment properties from director...
     Unable to get properties list from director, trying without it...

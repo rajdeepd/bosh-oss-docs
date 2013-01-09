@@ -1,6 +1,7 @@
 #OpenStack Installation:
 
-<b>OpenStack Code Names:</b> Each OpenStack service has a code name. Code Names to be used in this document
+###OpenStack Code Names:
+ Each OpenStack service has a code name. Code Names to be used in this document
 
 
 | Service name 	| Code name 	 
@@ -10,38 +11,37 @@
 | Image 	| Glance 	
 | Dashboard 	| Horizon 	
 | Object Storage 	| Swift 	 
-| Volumes 	| Cinder                      
 | Networking 	| Quantum                  
 
 
-##Prerquisites:
+##Prerequisites:
 
-  <b> Hardware Requirements:</b>
-   <ol>
-   <li>A Box with Virtualization Enabled.</li>
+###Hardware Requirements:
+   
+   1. A Box with Virtualization Enabled.
 
-   <li>64 GB RAM (32 GB was sufficient for deploying Micro bosh and Wordpress)</li>
+   2. 64 GB RAM (32 GB was sufficient for deploying Micro bosh and Wordpress)
 
-   <li>12 processing cores</li>
+   3. 12 processing cores
 
-   <li>(2) hard drives</li>
+   4. (2) hard drives
 
-   <li>(2) ethernet cards.</li>
+   5. (2) ethernet cards.
 
-</ol>
 
-<b>Multi Node Installation (Types of Nodes required):</b>
- <ol>
-   <li> 1 Controller </li>
 
-   <li> x Compute Nodes </li>
+###Multi Node Installation (Types of Nodes required):
+ 
+   1. 1 Controller 
 
-   <li> No special Storage Service (Swift) needed. </li>
+   2. x Compute Nodes 
 
-   <li> Nova Volume and Glance will be used for Storage </li>
-</ol>
+   3. No special Storage Service (Swift) needed. 
 
-<b>Networking Topology :</b> Flat DHCP (Nova Network service running on Controller Node)
+   4. Nova Volume and Glance will be used for Storage 
+
+
+Networking Topology : Flat DHCP (Nova Network service running on Controller Node)
 
 
 
@@ -56,17 +56,17 @@
  Install vim It is a text editor and is much easier to use than vi editor
 
 
-     # apt-get install vim
+     apt-get install vim
 
-Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as <b>prepare-system-1.sh</b> and run. 
+Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as prepare-system-1.sh and run. 
 
 It will install ntp, tgt target, openiscsi-client. 
 
     ./prepare-system-1.sh
 
-1. <b>NTP</b> - It keeps all the services in sync across multiple machines, we need to install NTP.
-2. <b>tgt target</b> -  features an iscsi target, we need it for nova-volume service.
-3. <b>openiscsi-client</b> - is required to run nova-compute service.
+1. NTP - It keeps all the services in sync across multiple machines, we need to install NTP.
+2. tgt target -  features an iscsi target, we need it for nova-volume service.
+3. openiscsi-client - is required to run nova-compute service.
 
 After running above script update networking configuration as follows
 
@@ -93,13 +93,13 @@ Below is the example configuration.
 
 Note:- Make sure that you have given the actual machine IP under eth0 as address.In this example 10.0.0.2 is the machine IP, which is the OpenStack Controller.
 
-   <b> Points to remember:</b>
+   Points to remember:
 
     1.	Controller Node IP - 10.0.0.2(We will be using this ip while installing keystone and nova)
     2.	eth1 ip series - 192.168.22.1
 
  
-Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as <b>prepare-system-2.sh</b> and run. 
+Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as prepare-system-2.sh and run. 
 
 It will install bridge-utils, rabbitmq-server and kvm.
 
@@ -121,7 +121,7 @@ Note:- Now you can check the support for the virtualization using the below comm
 
 MySQL - Nova and glance will use MySQL to store their runtime data.
 
-Copy script  from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as <b>install-mysql.sh</b> and run. 
+Copy script  from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as install-mysql.sh and run. 
 
 It will install mysql and also creates OpenStack databases and users. 
 
@@ -148,19 +148,19 @@ After MySQL is running, you should be able to login with any of the OpenStack us
 
 The Keystone service manages users, tenants (accounts or projects) and offers a common identity system for all the OpenStack components.
 
-Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as <b>install-keystone.sh</b> and run. 
+Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as install-keystone.sh and run. 
 
 It will install keystone.
 
     ./install-keystone.sh
 
-You'll be prompted for a token, the password<b>(vmware)</b> and your email address. The email address is used to populate the user's information in the database.
+You'll be prompted for a token, the password(vmware) and your email address. The email address is used to populate the user's information in the database.
 
     Enter a token for the OpenStack services to auth with keystone: admin
     Enter the password you used for the MySQL users (nova, glance, keystone): vmware
     Enter the email address for service accounts (nova, glance, keystone): user@vmware.com
 
-<b>Check the status of Keystone installation</b>
+Check the status of Keystone installation:
 
 To set the environment variables run the following command:
 
@@ -175,10 +175,10 @@ The output should be something like this:
     c1ca1604c38443f2856e3818c4ceb4d4	True	     nova@mail.com	    nova
     dd183fe2daac436682e0550d3c339dde	True	     admin@mail.com	    admin
 
-<b>Finally most importantly Update template file like below:</b>
+Finally most importantly Update template file like below:
 
     vim /etc/keystone/default_catalog.templates
-<b> config for TemplatedCatalog, using camelCase because I don't want to do </b>
+ config for TemplatedCatalog, using camelCase because I don't want to do 
 
     # translations for keystone compat
     catalog.RegionOne.identity.publicURL = http://10.0.0.2:$(public_port)s/v3.0
@@ -207,12 +207,12 @@ The output should be something like this:
     catalog.RegionOne.image.internalURL = http://10.0.0.2:9292/v1
     catalog.RegionOne.image.name = Image Service
 
-<b>Note:-</b> Replace the ip <b>10.0.0.2</b> with the actual IP of contoller node.
+Note:- Replace the ip 10.0.0.2 with the actual IP of contoller node.
 
-<b>Note:-</b> If you are using vim used the following command
-<b>:%s/localhost/10.0.0.2/g</b>
+Note:- If you are using vim used the following command
+:%s/localhost/10.0.0.2/g
 
-<b>Restart Keystone service </b>
+Restart Keystone service 
     
      service keystone restart
 
@@ -260,15 +260,15 @@ We need to install lvm2 (logical Volume Manager) to create volumes.
      Volume group "nova-volumes" successfully created
  
 
-Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as <b>install-glance.sh</b> and run. 
+Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as install-glance.sh and run. 
 
     ./install-glance.sh
 
 The script will download an Ubuntu 12.04 LTS cloud image from StackGeek's S3 bucket. 
 
-<b>Now Test Glance</b> 
+Now Test Glance
 
-    # glance index
+    glance index
 
 The output should display the newly added image.
 
@@ -297,7 +297,7 @@ We will execute this file whenever we need to restart nova.
 
 
 
-Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as <b>install-nova.sh</b> and run. 
+Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as install-nova.sh and run. 
 
     ./install-nova.sh
 
@@ -320,7 +320,7 @@ You'll immediately be prompted for a few items, including your existing network 
 
 
 
-<b>Test Nova</b>
+Test Nova
 
     nova list
 
@@ -333,17 +333,17 @@ This should display the image we uploaded while installing glance.
 
 ##6. Installing Horizon
 
-Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as <b>install-horizon.sh</b> and run. 
+Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as install-horizon.sh and run. 
 
-<b>Install Dashboard</b>
+Install Dashboard
 
-    # apt-get install libapache2-mod-wsgi openstack-dashboard
+    apt-get install libapache2-mod-wsgi openstack-dashboard
 
-<b>Restart Apache</b>
+Restart Apache
 
-    # service apache2 restart
+    service apache2 restart
 
-<b>Test Dashboard</b>
+Test Dashboard
 
     Open Browser and enter below URL:
 
@@ -358,31 +358,31 @@ Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master
 
 # Installing Additional Compute Nodes
 
-##<b>Prerequisites:</b>
+##Prerequisites:
 
 1. Install 64 bit version of Ubuntu server 12.04
 
 
 ## Step 1 : Prepare your System
 
-<b>Update and upgrade the system.</b>
+Update and upgrade the system.
 
     sudo su
     apt-get update
     apt-get upgrade
 
-<b>Install vim </b> - It is a text editor and is much easier to use than vi editor
+Install vim  - It is a text editor and is much easier to use than vi editor
 
-    # apt-get install vim
+    apt-get install vim
 
 
 ## Step 2 : Network Configuration
 
-<b>Install bridge-utils</b>
+Install bridge-utils
 
     apt-get install bridge-utils
 
-Edit the <b> /etc/network/interfaces </b>file so as to looks like this
+Edit the  /etc/network/interfaces file so as to looks like this
 
     vim /etc/network/interfaces
 
@@ -401,13 +401,13 @@ Below is the example configuration.
     address 192.168.22.1
     netmask 255.255.255.0
 
-<b>Note:-</b> Make sure that you have given the actual machine IP under eth0 as address.In this example 10.0.0.2 is the machine IP, which is the OpenStack Controller.
+Note:- Make sure that you have given the actual machine IP under eth0 as address.In this example 10.0.0.2 is the machine IP, which is the OpenStack Controller.
 
-<b>Points to remember:-</b>
+Points to remember:-
 1.Controller Node IP - 10.0.0.2(We will be using this ip while installing keystone and nova)
 2.eth1 ip series - 192.168.22.1
 
-<b> Restart Network</b>
+ Restart Network
 
     /etc/init.d/networking restart
 
@@ -422,9 +422,9 @@ Update <b>ntp.conf</b> and add below lines.
     vim /etc/ntp.conf
     server 10.0.0.2
 
-<b>Note:-</b> Make sure that you have given the actual machine IP of OpenStack Controller node.
+Note:- Make sure that you have given the actual machine IP of OpenStack Controller node.
 
-<b>Restart NTP </b>
+Restart NTP
   
     service ntp restart
 
@@ -440,17 +440,17 @@ Update the <b>/etc/nova/nova.conf</b>
     vim /etc/nova/nova.conf
 
 
-<b>Note:-</b> Copy the contents of nova.conf from controller node and paste here.
+Note:- Copy the contents of nova.conf from controller node and paste here.
 
-<b>Restart nova-compute</b>
+Restart nova-compute
 
     service nova-compute restart
 
 Check if the second compute node is detected by Controller node or not.
 
-    # nova-manage service list
+    nova-manage service list
 
-<b>Note:-</b> You can run this command either on controller or compute node.
+Note:- You can run this command either on controller or compute node.
 
 
 The output should be something like this:

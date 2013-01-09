@@ -3,17 +3,17 @@
 <b>OpenStack Code Names:</b> Each OpenStack service has a code name. We will be using below code names in this document
 
 		 
-		+-------------------------------+-------------------------------+
-		| Service name                  | Code name                     |
-		+-------------------------------+-------------------------------+
-		| Identity                      | Keystone                      |
-		| Compute                       | Nova                          |
-		| Image                         | Glance                        |
-		| Dashboard                     | Horizon                       |
-		| Object Storage                | Swift                         |
-		| Volumes                       | Cinder                        |
-		| Networking                    | Quantum                       |
-		+-------------------------------+-------------------------------+
++-------------------------------+-------------------------------+
+| Service name                  | Code name         |
++-------------------------------+-------------------------------+
+| Identity                     | Keystone                 |
+| Compute                   | Nova                       |
+| Image                       | Glance                    |
+| Dashboard                | Horizon                    |
+| Object Storage          | Swift                        |
+| Volumes                   | Cinder                      |
+| Networking                | Quantum                  |
++-------------------------------+-------------------------------+
 
 ##Prerequisites:
 
@@ -135,8 +135,8 @@ You'll be prompted for a password which will be the password of users and databa
 
  During the installation process you will be prompted for a root password for MySQL. 
 
-    1. You can use the same password, ‘vmware’. 
-    2. At the end of the MySQL install you'll be prompted for your root password again. Enter same password ‘vmware’.
+    1. You can use the same password, Â‘vmwareÂ’. 
+    2. At the end of the MySQL install you'll be prompted for your root password again. Enter same password Â‘vmwareÂ’.
 
 After MySQL is running, you should be able to login with any of the OpenStack users and/or the root admin account by doing the following:
 
@@ -219,7 +219,7 @@ The output should be something like this:
 
 ##4. Installing Glance
 
-Glance is Openstacks’s Image Manager service.
+Glance is OpenstacksÂ’s Image Manager service.
 
 Set up a logical volume for Nova to use for creating snapshots and volumes. Here you need secondary Hard Disk attached to the server.
 

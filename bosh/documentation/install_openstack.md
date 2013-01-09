@@ -1,21 +1,20 @@
 #OpenStack Installation:
 
-<b>OpenStack Code Names:</b> Each OpenStack service has a code name. We will be using below code names in this document
+<b>OpenStack Code Names:</b> Each OpenStack service has a code name. Code Names to be used in this document
 
-		 
-+-------------------------------+-------------------------------+
-| Service name                  | Code name         |
-+-------------------------------+-------------------------------+
-| Identity                     | Keystone                 |
-| Compute                   | Nova                       |
-| Image                       | Glance                    |
-| Dashboard                | Horizon                    |
-| Object Storage          | Swift                        |
-| Volumes                   | Cinder                      |
-| Networking                | Quantum                  |
-+-------------------------------+-------------------------------+
 
-##Prerequisites:
+| Service name 	| Code name 	 
+| -----------------------	| -------------------------------
+| Identity 	| Keystone 	
+| Compute 	| Nova 	
+| Image 	| Glance 	
+| Dashboard 	| Horizon 	
+| Object Storage 	| Swift 	 
+| Volumes 	| Cinder                      
+| Networking 	| Quantum                  
+
+
+##Prerquisites:
 
   <b> Hardware Requirements:</b>
    <ol>
@@ -50,9 +49,9 @@
 
 ###Update and upgrade the system.
 
-     $ sudo s
-     # apt-get update
-     # apt-get upgrade
+     sudo s
+     apt-get update
+     apt-get upgrade
 
  Install vim It is a text editor and is much easier to use than vi editor
 
@@ -73,7 +72,7 @@ After running above script update networking configuration as follows
 
 As stated earlier we need 2 nic cards. eth0 is the machine's link to the outside world, eth1 is the interface we'll be using for our virtual machines. We'll also make nova bridge clients via eth0 into the internet.
 
-     $ vim /etc/network/interfaces
+     vim /etc/network/interfaces
 
 Below is the example configuration.
 
@@ -112,7 +111,7 @@ It will install bridge-utils, rabbitmq-server and kvm.
 
 Note:- Now you can check the support for the virtualization using the below command:
          
-     $ kvm-ok.
+     kvm-ok.
 
      output should be:
      INFO: /dev/kvm exists
@@ -178,7 +177,7 @@ The output should be something like this:
 
 <b>Finally most importantly Update template file like below:</b>
 
-    $ vim /etc/keystone/default_catalog.templates
+    vim /etc/keystone/default_catalog.templates
 <b> config for TemplatedCatalog, using camelCase because I don't want to do </b>
 
     # translations for keystone compat
@@ -215,7 +214,7 @@ The output should be something like this:
 
 <b>Restart Keystone service </b>
     
-    root@vmware:/home/vmware# service keystone restart
+     service keystone restart
 
 ##4. Installing Glance
 
@@ -228,9 +227,9 @@ Here's the output from the format and volume creation process:
 
 We need to install lvm2 (logical Volume Manager) to create volumes.
 
-    root@vmware:/home/vmware# apt-get install lvm2
+    apt-get install lvm2
 
-    root@vmware:/home/vmware# fdisk /dev/sdb
+    fdisk /dev/sdb
 
     Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
     Building a new DOS disklabel with disk identifier 0xb39fe7af.
@@ -255,13 +254,11 @@ We need to install lvm2 (logical Volume Manager) to create volumes.
 
     Calling ioctl() to re-read partition table.
     Syncing disks.
-    root@vmware:/home/vmware# pvcreate -ff /dev/sdb1
+    pvcreate -ff /dev/sdb1
      Physical volume "/dev/sdb1" successfully created
-    root@vmware:/home/vmware# vgcreate nova-volumes /dev/sdb1
+    vgcreate nova-volumes /dev/sdb1
      Volume group "nova-volumes" successfully created
-    root@vmware:/home/vmware#
-
-
+ 
 
 Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstackgeek"> here </a> and save it as <b>install-glance.sh</b> and run. 
 
@@ -325,11 +322,11 @@ You'll immediately be prompted for a few items, including your existing network 
 
 <b>Test Nova</b>
 
-    # nova list
+    nova list
 
 This should display all the nova services running
 
-    # nova image-list
+    nova image-list
 
 This should display the image we uploaded while installing glance.
 
@@ -370,9 +367,9 @@ Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master
 
 <b>Update and upgrade the system.</b>
 
-    $ sudo su
-    # apt-get update
-    # apt-get upgrade
+    sudo su
+    apt-get update
+    apt-get upgrade
 
 <b>Install vim </b> - It is a text editor and is much easier to use than vi editor
 
@@ -383,11 +380,11 @@ Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master
 
 <b>Install bridge-utils</b>
 
-    # apt-get install bridge-utils
+    apt-get install bridge-utils
 
 Edit the <b> /etc/network/interfaces </b>file so as to looks like this
 
-    # vim /etc/network/interfaces
+    vim /etc/network/interfaces
 
 Below is the example configuration.
     auto lo
@@ -412,42 +409,42 @@ Below is the example configuration.
 
 <b> Restart Network</b>
 
-    # /etc/init.d/networking restart
+    /etc/init.d/networking restart
 
 ## Step 3 : Install NTP
 
 To keep all the services in sync across multiple machines, we need to install NTP.
 
-    # apt-get install ntp
+    apt-get install ntp
 
 Update <b>ntp.conf</b> and add below lines.
 
-    # vim /etc/ntp.conf
+    vim /etc/ntp.conf
     server 10.0.0.2
 
 <b>Note:-</b> Make sure that you have given the actual machine IP of OpenStack Controller node.
 
 <b>Restart NTP </b>
   
-    # service ntp restart
+    service ntp restart
 
 
 ## Step 4: Install Nova
 
 Install the nova-components and dependencies
 
-    # apt-get install nova-compute
+    apt-get install nova-compute
 
 Update the <b>/etc/nova/nova.conf</b>
 
-    # vim /etc/nova/nova.conf
+    vim /etc/nova/nova.conf
 
 
 <b>Note:-</b> Copy the contents of nova.conf from controller node and paste here.
 
 <b>Restart nova-compute</b>
 
-    # service nova-compute restart
+    service nova-compute restart
 
 Check if the second compute node is detected by Controller node or not.
 

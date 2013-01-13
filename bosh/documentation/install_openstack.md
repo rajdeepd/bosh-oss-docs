@@ -1,4 +1,4 @@
-#OpenStack Installation:
+openstack_base_1#OpenStack Installation:
 
 ###OpenStack Code Names:
  Each OpenStack service has a code name. Code Names to be used in this document
@@ -58,11 +58,11 @@ Networking Topology : Flat DHCP (Nova Network service running on Controller Node
 
      apt-get install vim
 
-Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as prepare-system-1.sh and run. 
+Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and run. 
 
 It will install ntp, tgt target, openiscsi-client. 
 
-    ./prepare-system-1.sh
+    ./openstack_base_1.sh
 
 1. NTP - It keeps all the services in sync across multiple machines, we need to install NTP.
 2. tgt target -  features an iscsi target, we need it for nova-volume service.
@@ -99,11 +99,15 @@ Note:- Make sure that you have given the actual machine IP under eth0 as address
     2.	eth1 ip series - 192.168.22.1
 
  
-Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as prepare-system-2.sh and run. 
+restart the networking interface.
+
+    /etc/network/interfaces restart
+
+Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a>  and run. 
 
 It will install bridge-utils, rabbitmq-server and kvm.
 
-    ./prepare-system-2.sh
+    ./openstack_base_2.sh
 
  1. RabbitMQ, AMQP and Python Memcache - OpenStack components use RabbitMQ, and AMQP-implementation to communicate each other.
  2. KVM - OpenStack uses KVM and libvirt to control virtual machines.
@@ -121,12 +125,12 @@ Note:- Now you can check the support for the virtualization using the below comm
 
 MySQL - Nova and glance will use MySQL to store their runtime data.
 
-Copy script  from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as install-mysql.sh and run. 
+Copy script  from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and run. 
 
 It will install mysql and also creates OpenStack databases and users. 
 
     
-    ./install-mysql.sh
+    ./openstack_mysql.sh
 
 You'll be prompted for a password which will be the password of users and databases MySQL:
 
@@ -148,11 +152,11 @@ After MySQL is running, you should be able to login with any of the OpenStack us
 
 The Keystone service manages users, tenants (accounts or projects) and offers a common identity system for all the OpenStack components.
 
-Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as install-keystone.sh and run. 
+Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and run. 
 
 It will install keystone.
 
-    ./install-keystone.sh
+    ./openstack_keystone.sh
 
 You'll be prompted for a token, the password(vmware) and your email address. The email address is used to populate the user's information in the database.
 
@@ -164,7 +168,7 @@ Check the status of Keystone installation:
 
 To set the environment variables run the following command:
 
-     . ./envrc 
+     . ./stackrc 
      keystone user-list
 
 The output should be something like this:
@@ -260,9 +264,9 @@ We need to install lvm2 (logical Volume Manager) to create volumes.
      Volume group "nova-volumes" successfully created
  
 
-Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as install-glance.sh and run. 
+Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and run. 
 
-    ./install-glance.sh
+    ./openstack_glance.sh
 
 The script will download an Ubuntu 12.04 LTS cloud image from StackGeek's S3 bucket. 
 
@@ -297,9 +301,9 @@ We will execute this file whenever we need to restart nova.
 
 
 
-Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as install-nova.sh and run. 
+Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and run. 
 
-    ./install-nova.sh
+    ./openstack_nova.sh
 
 You'll immediately be prompted for a few items, including your existing network interface's IP address, the fixed network address, and the floating pool addresses:
 
@@ -333,11 +337,11 @@ This should display the image we uploaded while installing glance.
 
 ##6. Installing Horizon
 
-Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and save it as install-horizon.sh and run. 
+Copy script from  <a href="https://github.com/rajdeepd/bosh-oss-docs/tree/master/bosh/documentation/openstack_scripts"> here </a> and run. 
 
 Install Dashboard
 
-    apt-get install libapache2-mod-wsgi openstack-dashboard
+    ./openstack_horizon.sh
 
 Restart Apache
 

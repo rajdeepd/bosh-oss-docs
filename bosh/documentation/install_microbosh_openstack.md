@@ -215,6 +215,7 @@ Note:-
     3. Replace the password with hashed password.
  
 ----
+Set the deployment to MicroBosh-OpenStack:
 
     cd ..
     bosh micro deployment microbosh-openstack

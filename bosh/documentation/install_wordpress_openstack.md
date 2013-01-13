@@ -166,7 +166,7 @@ Copy the below content and paste it in wordpress-openstack.yml
 Note:-
 
  1. Replace Only the red colored values with actual ones.
- 2. Generate hashed password for f00bar
+ 2. Generate hashed password for f00bar.
  3. Replace the password with hashed password.
 
  

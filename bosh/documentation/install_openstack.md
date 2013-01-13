@@ -1,4 +1,4 @@
-openstack_base_1#OpenStack Installation:
+#OpenStack Installation:
 
 ###OpenStack Code Names:
  Each OpenStack service has a code name. Code Names to be used in this document
@@ -13,6 +13,9 @@ openstack_base_1#OpenStack Installation:
 | Object Storage 	| Swift 	 
 | Networking 	| Quantum                  
 
+
+##Version:
+     OpenStack Essex(2012.1) Ubuntu 12.04
 
 ##Prerequisites:
 
@@ -333,6 +336,13 @@ This should display all the nova services running
     nova image-list
 
 This should display the image we uploaded while installing glance.
+
+Nova Version:
+
+    nova-manage version list
+    2012.1.3-dev (2012.1.3-LOCALBRANCH:LOCALREVISION)
+
+
 
 
 ##6. Installing Horizon
